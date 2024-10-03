@@ -1,0 +1,48 @@
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        table {
+            width: 100%;
+        }
+        th {
+            text-align: left;
+        }
+        td {
+            padding: 10px;
+        }
+        table td, table th {
+            border-bottom: 1px solid;
+        }
+        .nav-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: green;
+           
+        }
+        .nav-table td {
+            text-align: center;
+        }
+        .nav-table td a {
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px;
+        }
+        .nav-table td a:hover {
+            text-decoration: underline;
+        }
+  

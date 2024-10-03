@@ -1,0 +1,67 @@
+<section class="repertoire-section">
+    <h2>REPERTUAR</h2>
+    <div class="days-of-week">
+        <span class="day" *ngFor="let day of rotatedWeekDays; let i = index" [ngClass]="{'selected-day': day === selectedDay, 'today': i === 0}">{{ day }}</span>
+    </div>
+
+    <p class="date">{{ today }}</p>
+    <ul class="movies">
+        <li>
+            <img src="https://cdn1.naekranie.pl/wp-content/uploads/2024%2F08%2F1_66c363b618cc5.webp" alt="Plakat filmu Joker: Folie a Deux">
+            <div>
+                <p class="movie-title">JOKER: FOLIE A DEUX</p>
+                <div class="movie-info">
+                    <p><strong>Gatunek:</strong> Kryminał, Dramat, Musical</p>
+                    <p><strong>Czas trwania:</strong> 138 min</p>
+                    <p><strong>Język:</strong> EN (NAP-PL)</p>
+                    <p><strong>Format:</strong> 2D</p>
+                </div>
+                <div class="showtimes">
+                    <button class="showtime-btn">10:30</button>
+                    <button class="showtime-btn">11:30</button>
+                    <button class="showtime-btn">13:30</button>
+                    <button class="showtime-btn">14:30</button>
+                    <button class="showtime-btn">16:30</button>
+                    <button class="showtime-btn">17:30</button>
+                    <button class="showtime-btn">19:30</button>
+                    <button class="showtime-btn">20:30</button>
+                    <button class="showtime-btn">21:10</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <img src="https://i.ebayimg.com/images/g/-mUAAOSwne9mZrEy/s-l1200.jpg" alt="Plakat filmu Deadpool & Wolverine">
+            <div>
+                <p>DEADPOOL & WOLVERINE</p>
+                <div class="movie-info">
+                    <p><strong>Gatunek:</strong> Akcja, Komedia</p>
+                    <p><strong>Czas trwania:</strong> 130 min</p>
+                    <p><strong>Język:</strong> Angielski</p>
+                    <p><strong>Format:</strong> 2D, 3D</p>
+                </div>
+                <div class="showtimes">
+                    <button class="showtime-btn">15:30</button>
+                    <button class="showtime-btn">18:00</button>
+                    <button class="showtime-btn">20:30</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <img src="https://www.galeriaplakatu.com/img/imagecache/100001-101000/681x1026_product_media_100001-101000_PP2403442-j.webp" alt="Plakat filmu Beetlejuice Beetlejuice">
+            <div>
+                <p>BEETLEJUICE BEETLEJUICE</p>
+                <div class="movie-info">
+                    <p><strong>Gatunek:</strong> Fantasy, Komedia</p>
+                    <p><strong>Czas trwania:</strong> 92 min</p>
+                    <p><strong>Język:</strong> Angielski, Polski</p>
+                    <p><strong>Format:</strong> 2D</p>
+                </div>
+                <div class="showtimes">
+                    <button class="showtime-btn">17:00</button>
+                    <button class="showtime-btn">19:30</button>
+                    <button class="showtime-btn">22:00</button>
+                </div>
+            </div>
+        </li>
+    </ul>
+</section>

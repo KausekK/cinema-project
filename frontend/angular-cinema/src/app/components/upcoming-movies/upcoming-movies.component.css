@@ -1,0 +1,9 @@
+.movies li {
+    display: flex;
+    align-items: center;
+}
+.movies li img {
+    margin-right: 10px;
+    max-width: 100px; 
+    margin-top: 10px;
+}

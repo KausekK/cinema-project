@@ -1,0 +1,137 @@
+/* Sekcja repertuaru */
+.repertoire-section {
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+/* Dni tygodnia jako tekst */
+.days-of-week {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 10px;
+    font-size: 18px;
+}
+
+.day {
+    cursor: pointer;
+    color: #f5f5f5;
+    transition: color 0.3s;
+}
+
+.day:hover {
+    color: #ff9800;  /* Hover effect */
+}
+
+/* Styl dla "Dziś" */
+.today {
+    color: #bbbbbb;
+    font-weight: bold;
+}
+
+/* Styl dla wybranego dnia */
+.selected-day {
+    color: #ff9800;
+    font-weight: bold;
+}
+
+/* Styl dla tytułu filmu */
+.movie-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+/* Dodatkowe informacje o filmie */
+.movie-info {
+    text-align: left;
+    font-size: 14px;
+    color: #bbbbbb;
+    margin-bottom: 10px;
+}
+
+.movie-info p {
+    margin: 2px 0;
+}
+
+/* Styl dla przycisków z godzinami */
+.showtimes {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.showtime-btn {
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.showtime-btn:hover {
+    background-color: #e68a00;
+}
+
+.showtime-btn:focus {
+    outline: none;
+    background-color: #cc7a00;
+}
+
+/* Styl filmów */
+.movies {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.movies li {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background-color: #2e2e2e;
+    margin-bottom: 15px;
+    padding: 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.movies li:hover {
+    background-color: #3e3e3e;
+}
+
+.movies img {
+    width: 150px;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 8px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .movies li {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .showtimes {
+        justify-content: center;
+    }
+
+    .movie-info, .movie-title {
+        text-align: center;
+    }
+}
