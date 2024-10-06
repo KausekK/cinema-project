@@ -1,3 +1,4 @@
+import { MoviesService } from './services/movies.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -6,11 +7,10 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { RepertoireComponent } from './components/repertoire/repertoire.component';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UpcomingMoviesComponent } from './components/upcoming-movies/upcoming-movies.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   { path: 'main', component: HomePageComponent},
@@ -32,9 +32,11 @@ const routes: Routes = [
     AppRoutingModule,
     RouterModule.forRoot(routes),
     FormsModule,
+    HttpClientModule
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    MoviesService
   ],
   bootstrap: [AppComponent]
 })
