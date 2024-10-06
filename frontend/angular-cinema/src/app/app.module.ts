@@ -11,6 +11,9 @@ import { FormsModule } from '@angular/forms';
 import { UpcomingMoviesComponent } from './components/upcoming-movies/upcoming-movies.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { HttpClientModule } from '@angular/common/http';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 const routes: Routes = [
   { path: 'main', component: HomePageComponent},
@@ -32,7 +35,10 @@ const routes: Routes = [
     AppRoutingModule,
     RouterModule.forRoot(routes),
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule
   ],
   providers: [
     provideAnimationsAsync(),

@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.security.Timestamp;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -29,9 +30,6 @@ public class Shows {
     @ManyToOne
     @JoinColumn(name = "Hall_id", nullable = false)
     private Hall hall;
-
-    @Column(name = "start_time")
-    private Timestamp startTime;
 
     @Column(name = "day_of_week")
     private String dayOfWeek;
