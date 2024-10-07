@@ -1,8 +1,8 @@
 <section class="repertoire-section">
   <h2>REPERTUAR</h2>
   <mat-form-field *ngIf="cities && cities.length > 0" appearance="outline">
-      <mat-label>Wybierz kino</mat-label>
-      <mat-select [(value)]="selectedCity" (selectionChange)="listMoviesWithCityParam(selectedCity, selectedDay)">
+      <mat-label style="color: white;">Wybierz kino</mat-label>
+      <mat-select style="color: white;" [(value)]="selectedCity" (selectionChange)="listMoviesWithCityParam(selectedCity, selectedDay)">
           <mat-option *ngFor="let city of cities" [value]="city">{{ city }}</mat-option>
       </mat-select>
   </mat-form-field>      
