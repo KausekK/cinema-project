@@ -14,11 +14,16 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { PriceListComponent } from './components/price-list/price-list.component';
+import { PromotionsComponent } from './components/promotions/promotions.component';
+import { YouTubePlayer} from '@angular/youtube-player'
 
 const routes: Routes = [
   { path: 'main', component: HomePageComponent},
   { path: 'repertoire', component: RepertoireComponent },
   { path: 'upcoming', component: UpcomingMoviesComponent},
+  { path: 'pricing', component: PriceListComponent},
+  { path: 'promotions', component: PromotionsComponent},
   { path: '', redirectTo: '/main', pathMatch: 'full'},
   { path: '**', redirectTo: '/main', pathMatch: 'full'}
 ];
@@ -28,7 +33,9 @@ const routes: Routes = [
     AppComponent,
     HomePageComponent,
     RepertoireComponent,
-    UpcomingMoviesComponent
+    UpcomingMoviesComponent,
+    PriceListComponent,
+    PromotionsComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +45,8 @@ const routes: Routes = [
     HttpClientModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatInputModule
+    MatInputModule,
+    YouTubePlayer
   ],
   providers: [
     provideAnimationsAsync(),

@@ -4,6 +4,7 @@ import { MoviesService } from '../../services/movies.service';
 import { CitiesService } from '../../services/cities.service';
 import { ShowsService } from '../../services/shows.service';
 import { Show } from '../../common/show';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-repertoire',
@@ -11,6 +12,7 @@ import { Show } from '../../common/show';
   styleUrl: './repertoire.component.css'
 })
 export class RepertoireComponent implements OnInit{
+
 
   weekDays: string[] = ['Pn', 'Wt', 'Śr', 'Czw', 'Pt', 'So', 'Nd'];
   today: string;
@@ -27,10 +29,11 @@ export class RepertoireComponent implements OnInit{
   pageSize: number = 10;
   totalElement: number = 0;
   groupedMovies: { movie: Movie; times: string[]; }[] | undefined;
+  isTrailerOpen: boolean = false;
 
   constructor(private movieService: MoviesService,
     private citiesService: CitiesService,
-    private showsService: ShowsService
+    private showsService: ShowsService,
   ) {
     const now = new Date();
     const todayIndex = this.getAdjustedDayIndex(now.getDay());
@@ -41,8 +44,8 @@ export class RepertoireComponent implements OnInit{
     this.rotatedWeekDays[0] = 'Dziś';
   }
   ngOnInit(): void {
-    // this.listMovies();
     this.listCities();
+    this.selectedDay = this.weekDays[this.getAdjustedDayIndex(new Date().getDay())];
   }
 
   getRotatedWeekDays(todayIndex: number): string[] {
@@ -59,7 +62,11 @@ export class RepertoireComponent implements OnInit{
   }
   selectDay(day: string) {
     this.selectedDay = day;
-}
+    if (this.selectedCity) {
+      this.listMoviesWithCityParam(this.selectedCity, this.selectedDay);
+    }
+  }
+  
 
 listMovies(){
   this.movieService.getMoviesList().subscribe(
@@ -76,8 +83,12 @@ listCities(){
   })
 }
 
-listMoviesWithCityParam(city: string) {
-  this.showsService.getShowsByCity(city, this.pageNumber - 1, this.pageSize).subscribe(
+listMoviesWithCityParam(city: string, dayOfWeek: string) {
+  if (dayOfWeek === 'Dziś') {
+    dayOfWeek = this.weekDays[this.getAdjustedDayIndex(new Date().getDay())];
+  }
+
+  this.showsService.getShowsByCity(city, dayOfWeek, this.pageNumber - 1, this.pageSize).subscribe(
     data => {
       if (data && data.content) {
         const groupedShows = new Map<number, { movie: Movie, times: string[] }>();
@@ -91,10 +102,18 @@ listMoviesWithCityParam(city: string) {
         });
 
         this.groupedMovies = Array.from(groupedShows.values());
-        console.log(this.groupedMovies)
-        this.pageNumber = data.page.number + 1;
-        this.pageSize = data.page.size;
-        this.totalElement = data.page.totalElements;
+        console.log(this.groupedMovies);
+
+        if (data.page) {
+          this.pageNumber = data.page.number + 1;
+          this.pageSize = data.page.size;
+          this.totalElement = data.page.totalElements;
+        } else {
+          console.error("Odpowiedź nie zawiera informacji o paginacji: ", data);
+          this.pageNumber = 1;
+          this.pageSize = 10;
+          this.totalElement = 0;
+        }
       } else {
         console.error("Nie znaleziono odpowiedniej struktury danych w odpowiedzi: ", data);
         this.groupedMovies = [];
@@ -105,8 +124,6 @@ listMoviesWithCityParam(city: string) {
     }
   );
 }
-
-
 
 
 }

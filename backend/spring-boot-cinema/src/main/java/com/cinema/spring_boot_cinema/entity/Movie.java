@@ -28,6 +28,9 @@ public class Movie {
     @Column(name = "format", nullable = false, length = 20)
     private String format;
 
-    @Column(name = "poster_url", nullable = false, length = 255)
+    @Column(name = "poster_url", nullable = false)
     private String posterUrl;
+
+    @Column(name = "trailer_url", nullable = false)
+    private String trailerUrl;
 }

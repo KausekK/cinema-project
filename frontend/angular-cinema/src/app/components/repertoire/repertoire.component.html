@@ -1,38 +1,38 @@
 <section class="repertoire-section">
-    <h2>REPERTUAR</h2>
-    <mat-form-field *ngIf="cities && cities.length > 0">
-        <mat-label>Wybierz kino</mat-label>
-        <mat-select [(value)]="selectedCity" (selectionChange)="listMoviesWithCityParam(selectedCity)">
+  <h2>REPERTUAR</h2>
+  <mat-form-field *ngIf="cities && cities.length > 0" appearance="outline">
+      <mat-label>Wybierz kino</mat-label>
+      <mat-select [(value)]="selectedCity" (selectionChange)="listMoviesWithCityParam(selectedCity, selectedDay)">
           <mat-option *ngFor="let city of cities" [value]="city">{{ city }}</mat-option>
-        </mat-select>
-    </mat-form-field>      
+      </mat-select>
+  </mat-form-field>      
 
-    <div *ngIf="selectedCity">
-        <div class="days-of-week">
-            <span class="day" *ngFor="let day of rotatedWeekDays; let i = index" [ngClass]="{'selected-day': day === selectedDay, 'today': i === 0}">{{ day }}</span>
-        </div>
-
-        <p class="date">{{ today }}</p>
-        <ul class="movies">
-            <ul class="movies">
-                <li *ngFor="let grouped of groupedMovies">
-                  <img [src]="grouped.movie.posterUrl" [alt]="'Plakat filmu ' + grouped.movie.title">
-                  <div>
-                    <p class="movie-title">{{ grouped.movie.title }}</p>
-                    <div class="movie-info">
+  <div *ngIf="selectedCity">
+      <div class="days-of-week">
+          <span class="day" *ngFor="let day of rotatedWeekDays; let i = index"
+                [ngClass]="{'selected-day': day === selectedDay, 'today': i === 0}"
+                (click)="selectDay(day)">
+              {{ day }}
+          </span>
+      </div>
+  
+      <p class="date">{{ today }}</p>
+      <ul class="movies">
+          <li *ngFor="let grouped of groupedMovies">
+              <img [src]="grouped.movie.posterUrl" [alt]="'Plakat filmu ' + grouped.movie.title">
+              <div>
+                  <p class="movie-title">{{ grouped.movie.title }}</p>
+                  <div class="movie-info">
                       <p><strong>Gatunek:</strong> {{ grouped.movie.type }}</p>
                       <p><strong>Czas trwania:</strong> {{ grouped.movie.duration }} min</p>
                       <p><strong>Język:</strong> {{ grouped.movie.language }}</p>
                       <p><strong>Format:</strong> {{ grouped.movie.format }}</p>
-                    </div>
-                    <div class="showtimes">
-                      <button class="showtime-btn" *ngFor="let time of grouped.times">{{ time | date: 'HH:mm' }}</button>
-                    </div>
                   </div>
-                </li>
-              </ul>
-              
-            
-        </ul>
-    </div>
+                  <div class="showtimes">
+                      <button class="showtime-btn" *ngFor="let time of grouped.times">{{ time | date: 'HH:mm' }}</button>
+                  </div>
+              </div>
+          </li>
+      </ul>
+  </div>
 </section>

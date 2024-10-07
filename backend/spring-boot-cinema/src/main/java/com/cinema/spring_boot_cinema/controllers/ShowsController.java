@@ -18,8 +18,8 @@ public class ShowsController {
     private ShowsRepository showsRepository;
 
     @GetMapping("/api/shows")
-    public Page<Shows> getShowsByCity(@RequestParam("cityName") String cityName, Pageable pageable) {
-        return showsRepository.findAllShowsByCity(cityName, pageable);
+    public Page<Shows> getShowsByCityAndDayOfWeek(@RequestParam("cityName") String cityName, @RequestParam("dayOfWeek") String dayOfWeek ,Pageable pageable) {
+        return showsRepository.findAllShowsByCityAndDayOfWeek(cityName, dayOfWeek, pageable);
     }
 }
 

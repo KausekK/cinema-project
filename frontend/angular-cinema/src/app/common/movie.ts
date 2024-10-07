@@ -6,7 +6,8 @@ export class Movie{
         public duration: number,
         public language: string,
         public format: string,
-        public posterUrl: string
+        public posterUrl: string,
+        public trailerUrl: string
     ){
 
     }

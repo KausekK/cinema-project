@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { Movie } from '../common/movie';
+import { MoviesPosters } from '../common/movies-posters';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,10 @@ export class MoviesService {
     return this.httpClient.get<GetResponseMovies>(this.baseUrl).pipe(
       map(response => response._embedded.movies)
     );
+}
+
+getMoviesPostersUrl(): Observable<MoviesPosters[]>{
+  return this.httpClient.get<MoviesPosters[]>(this.baseUrl + `/posters`)
 }
 
 }

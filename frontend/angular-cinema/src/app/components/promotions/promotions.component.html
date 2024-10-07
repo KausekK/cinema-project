@@ -1,0 +1,18 @@
+<section class="promotions-section">
+  <h2>Wybierz idealną promocję dla Ciebie</h2>
+  <p>Ciesz się kinem w atrakcyjnej cenie</p>
+  <div class="promotions-grid">
+    <div class="promotion" *ngFor="let promo of promotions" (click)="selectPromotion(promo.id)">
+      <h3>{{ promo.title }}</h3>
+      <p>{{ promo.description }}</p>
+      <p class="price">{{ promo.price }} zł</p>
+      <button class="more-btn">Więcej →</button>
+      <img [src]="promo.imageUrl" alt="{{ promo.title }}">
+    </div>
+  </div>
+  
+  <div class="promotion-details" *ngIf="selectedPromotion">
+    <h3>{{ selectedPromotion.title }}</h3>
+    <p>{{ selectedPromotion.fullDescription }}</p>
+  </div>
+</section>

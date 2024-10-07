@@ -18,4 +18,16 @@ public class Promotions {
 
     @Column(name = "discount", nullable = false)
     private double discount;
+
+    @Column(name = "price", nullable = false)
+    private double price;
+
+    @Column(name = "image_url", nullable = false)
+    private String imageUrl;
+
+    @Column(name = "description", nullable = false, length = 500)
+    private String description;
+
+    @Column(name = "full_description", nullable = false)
+    private String fullDescription;
 }
