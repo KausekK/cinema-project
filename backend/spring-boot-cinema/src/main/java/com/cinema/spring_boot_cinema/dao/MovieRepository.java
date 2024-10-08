@@ -18,4 +18,5 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
     @Query("SELECT new com.cinema.spring_boot_cinema.dto.MoviesPosters(m.id, m.posterUrl, m.title) FROM Movie m")
     List<MoviesPosters> getAllPosters();
 
+    List<Movie> findByTitle(String title);
 }

@@ -7,7 +7,7 @@
 <p class="section-title">U nas na ekranach</p>
 <div class="movies-container">
     <div class="movie-item" *ngFor="let movie of movies">
-        <img [src]="movie.posterUrl" [alt]="'Plakat filmu ' + movie.title">
+        <img [src]="movie.posterUrl" [alt]="'Plakat filmu ' + movie.title" [routerLink]="['/movie-details', movie.title]" routerLinkActive="true" style="cursor: pointer;">
         <p class="movie-title">{{ movie.title }}</p>
     </div>
 </div>

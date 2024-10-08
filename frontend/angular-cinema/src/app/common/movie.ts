@@ -7,7 +7,10 @@ export class Movie{
         public language: string,
         public format: string,
         public posterUrl: string,
-        public trailerUrl: string
+        public trailerUrl: string,
+        public director: string,
+        public description: string,
+        public ageRestriction: number
     ){
 
     }

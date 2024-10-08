@@ -3,10 +3,7 @@ package com.cinema.spring_boot_cinema.controllers;
 import com.cinema.spring_boot_cinema.dao.MovieRepository;
 import com.cinema.spring_boot_cinema.dto.MoviesPosters;
 import com.cinema.spring_boot_cinema.entity.Movie;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,5 +21,10 @@ public class MovieController {
     @GetMapping("/posters")
     public List<MoviesPosters> getMoviesPostersUrl() {
         return movieRepository.getAllPosters();
+    }
+
+    @GetMapping("/details")
+    public List<Movie> getMoviesByTitle(@RequestParam String title) {
+        return movieRepository.findByTitle(title);
     }
 }

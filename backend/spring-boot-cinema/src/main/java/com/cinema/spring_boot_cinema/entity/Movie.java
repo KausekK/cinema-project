@@ -33,4 +33,13 @@ public class Movie {
 
     @Column(name = "trailer_url", nullable = false)
     private String trailerUrl;
+
+    @Column(name = "director", nullable = false, length = 100)
+    private String director;
+
+    @Column(name = "description", nullable = false)
+    private String description;
+
+    @Column(name = "age_restriction")
+    private Integer ageRestriction;
 }

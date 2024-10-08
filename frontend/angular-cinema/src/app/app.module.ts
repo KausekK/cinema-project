@@ -16,7 +16,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { PriceListComponent } from './components/price-list/price-list.component';
 import { PromotionsComponent } from './components/promotions/promotions.component';
-import { YouTubePlayer} from '@angular/youtube-player'
+import { YouTubePlayer} from '@angular/youtube-player';
+import { MoveDetailsComponent } from './components/move-details/move-details.component'
 
 const routes: Routes = [
   { path: 'main', component: HomePageComponent},
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'upcoming', component: UpcomingMoviesComponent},
   { path: 'pricing', component: PriceListComponent},
   { path: 'promotions', component: PromotionsComponent},
+  { path: 'movie-details/:title', component: MoveDetailsComponent},
   { path: '', redirectTo: '/main', pathMatch: 'full'},
   { path: '**', redirectTo: '/main', pathMatch: 'full'}
 ];
@@ -35,7 +37,8 @@ const routes: Routes = [
     RepertoireComponent,
     UpcomingMoviesComponent,
     PriceListComponent,
-    PromotionsComponent
+    PromotionsComponent,
+    MoveDetailsComponent
   ],
   imports: [
     BrowserModule,

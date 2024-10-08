@@ -19,7 +19,6 @@ public interface ShowsRepository extends JpaRepository<Shows, Long> {
             "ORDER BY s.showTime")
     Page<Shows> findAllShowsByCityAndDayOfWeek(@Param("cityName") String cityName, @Param("dayOfWeek") String dayOfWeek, Pageable pageable);
 
-//    @Query("SELECT s FROM Shows s WHERE s.city.cityName = :cityName")
-//    Page<Shows> findAllShowsByCity(@Param("cityName") String cityName, Pageable pageable);
+
 
 }
