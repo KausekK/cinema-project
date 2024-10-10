@@ -1,4 +1,4 @@
-package com.cinema.spring_boot_cinema.dao;
+package com.cinema.spring_boot_cinema.repositories;
 
 import com.cinema.spring_boot_cinema.entity.Promotions;
 import org.springframework.data.jpa.repository.JpaRepository;

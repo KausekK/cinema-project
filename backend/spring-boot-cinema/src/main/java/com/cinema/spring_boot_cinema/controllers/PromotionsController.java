@@ -1,7 +1,7 @@
 package com.cinema.spring_boot_cinema.controllers;
 
 
-import com.cinema.spring_boot_cinema.dao.PromotionsRepository;
+import com.cinema.spring_boot_cinema.repositories.PromotionsRepository;
 import com.cinema.spring_boot_cinema.entity.Promotions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

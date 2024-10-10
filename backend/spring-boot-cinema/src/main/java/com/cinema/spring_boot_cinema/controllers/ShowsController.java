@@ -1,6 +1,6 @@
 package com.cinema.spring_boot_cinema.controllers;
 
-import com.cinema.spring_boot_cinema.dao.ShowsRepository;
+import com.cinema.spring_boot_cinema.repositories.ShowsRepository;
 import com.cinema.spring_boot_cinema.entity.Shows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

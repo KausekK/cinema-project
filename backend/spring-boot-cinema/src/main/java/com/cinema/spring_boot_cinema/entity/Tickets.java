@@ -19,7 +19,7 @@ public class Tickets {
 
     @ManyToOne
     @JoinColumn(name = "Client_id", nullable = false)
-    private Client client;
+    private User client;
 
     @Column(name = "seat_number", nullable = false, length = 10)
     private String seatNumber;
