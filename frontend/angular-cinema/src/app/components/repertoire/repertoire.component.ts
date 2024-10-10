@@ -5,6 +5,7 @@ import { CitiesService } from '../../services/cities.service';
 import { ShowsService } from '../../services/shows.service';
 import { Show } from '../../common/show';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-repertoire',
@@ -34,6 +35,7 @@ export class RepertoireComponent implements OnInit{
   constructor(private movieService: MoviesService,
     private citiesService: CitiesService,
     private showsService: ShowsService,
+    private router: Router
   ) {
     const now = new Date();
     const todayIndex = this.getAdjustedDayIndex(now.getDay());
@@ -126,4 +128,7 @@ listMoviesWithCityParam(city: string, dayOfWeek: string) {
 }
 
 
+navigateToLogin() {
+  this.router.navigate(['/login']);
+}
 }

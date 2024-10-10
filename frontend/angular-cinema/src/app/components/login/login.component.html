@@ -1,0 +1,20 @@
+ <form [formGroup]="loginFormGroup" (ngSubmit)="onSubmit()">
+    <div formGroupName="login" class="form-area">
+        <h3>Zaloguj się</h3>
+        <div class="form-field">
+            <label>Email</label>
+            <input formControlName="email" type="text">
+        </div>
+        <div class="form-field">
+            <label>Hasło</label>
+            <input formControlName="password" type="password">
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-info">Zaloguj się</button>
+        </div>
+        <div class="register-link">
+            Nie masz jeszczxe konta? <a routerLink="/register">Rejestracja</a>
+        </div>
+    </div>
+</form> 
+

@@ -1,0 +1,77 @@
+  .form-area {
+    background-color: #fff8f0;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+    margin: 40px auto;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    max-width: 400px;
+  }
+
+  .form-area h3 {
+    color: #d4af37;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+  }
+
+  .form-area label {
+    display: block;
+    margin-bottom: 5px;
+    color: #2c2c2c;
+    font-weight: bold;
+  }
+
+  .form-area input {
+    width: 90%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 2px solid #d4af37;
+    border-radius: 5px;
+    font-size: 1em;
+  }
+
+  .btn-info {
+    background-color: #d4af37;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .btn-info:hover {
+    background-color: #c49a2c;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .form-field {
+    margin-bottom: 20px;
+  }
+
+  .alert {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+  }
+
+  .register-link {
+    margin-top: 20px;
+    font-size: 1em;
+  }
+
+  .register-link a {
+    color: #d4af37;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .register-link a:hover {
+    color: #c49a2c;
+    text-decoration: underline;
+  }

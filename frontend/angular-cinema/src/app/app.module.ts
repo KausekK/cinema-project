@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { RepertoireComponent } from './components/repertoire/repertoire.component';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpcomingMoviesComponent } from './components/upcoming-movies/upcoming-movies.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { HttpClientModule } from '@angular/common/http';
@@ -17,7 +17,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { PriceListComponent } from './components/price-list/price-list.component';
 import { PromotionsComponent } from './components/promotions/promotions.component';
 import { YouTubePlayer} from '@angular/youtube-player';
-import { MoveDetailsComponent } from './components/move-details/move-details.component'
+import { MoveDetailsComponent } from './components/move-details/move-details.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+
 
 const routes: Routes = [
   { path: 'main', component: HomePageComponent},
@@ -26,6 +29,8 @@ const routes: Routes = [
   { path: 'pricing', component: PriceListComponent},
   { path: 'promotions', component: PromotionsComponent},
   { path: 'movie-details/:title', component: MoveDetailsComponent},
+  { path: 'register', component: RegisterComponent},
+  { path: 'login', component: LoginComponent},
   { path: '', redirectTo: '/main', pathMatch: 'full'},
   { path: '**', redirectTo: '/main', pathMatch: 'full'}
 ];
@@ -38,7 +43,9 @@ const routes: Routes = [
     UpcomingMoviesComponent,
     PriceListComponent,
     PromotionsComponent,
-    MoveDetailsComponent
+    MoveDetailsComponent,
+    RegisterComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,12 +56,13 @@ const routes: Routes = [
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
-    YouTubePlayer
+    YouTubePlayer,
+    ReactiveFormsModule,
   ],
   providers: [
     provideAnimationsAsync(),
-    MoviesService
+    MoviesService,
   ],
-  bootstrap: [AppComponent]
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

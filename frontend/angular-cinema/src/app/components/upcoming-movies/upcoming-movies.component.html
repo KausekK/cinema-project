@@ -1,9 +1,14 @@
-<section>
-    <h2>Najbliższe Premiery</h2>
-    <ul class="movies">
-        <li>
-          <img src="https://fwcdn.pl/nph/49468/2024/53106.7.jpg" alt="Plakat filmu Gladiator 2">
-          Gladiator 2 - 15.11.2024 
-        </li>
-    </ul>
+<section class="upcoming-releases-section">
+  <h2>Nadchodzące Premiery</h2>
+  <p>Bądź na bieżąco z najnowszymi premierami w Diamond Cinema.</p>
+  <!-- <div class="upcoming-grid">
+    <div class="upcoming-movie" *ngFor="let movie of upcomingMovies">
+      <img [src]="movie.posterUrl" [alt]="'Plakat filmu ' + movie.title">
+      <div class="movie-details">
+        <h3>{{ movie.title }}</h3>
+        <p>{{ movie.releaseDate | date: 'longDate' }}</p>
+        <button class="more-btn" (click)="viewMovieDetails(movie.id)">Więcej →</button>
+      </div>
+    </div>
+  </div> -->
 </section>
