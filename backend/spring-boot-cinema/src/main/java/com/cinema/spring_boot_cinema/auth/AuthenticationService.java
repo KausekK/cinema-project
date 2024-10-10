@@ -24,12 +24,18 @@ public class AuthenticationService {
     private final AuthenticationManager authenticationManager;
 
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
+
+        if (request.getEmail() == null || request.getPassword() == null) {
+            throw new IllegalArgumentException("Email and password cannot be null");
+        }
+
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getEmail(),
                         request.getPassword()
                 )
         );
+
         var user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
@@ -37,9 +43,14 @@ public class AuthenticationService {
         return AuthenticationResponse.builder().token(jwtToken).build();
     }
 
-    public AuthenticationResponse register(RegisterRequest request) {
-        Roles userRole = rolesRepository.findByRoleName("USER");
 
+    public AuthenticationResponse register(RegisterRequest request) {
+
+        if (request.getPassword() == null) {
+            throw new IllegalArgumentException("Password cannot be null");
+        }
+
+        Roles userRole = rolesRepository.findByRoleName("USER");
         var user = User.builder()
                 .firstName(request.getFirstName())
                 .lastName(request.getLastName())
@@ -52,4 +63,5 @@ public class AuthenticationService {
         var jwtToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder().token(jwtToken).build();
     }
+
 }

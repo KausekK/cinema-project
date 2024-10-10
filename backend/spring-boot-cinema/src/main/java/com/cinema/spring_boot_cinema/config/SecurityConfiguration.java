@@ -24,7 +24,7 @@ public class SecurityConfiguration {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/v1/auth/**").permitAll()
-                        .requestMatchers("/api/movies/**").permitAll()  // Umożliwia dostęp do endpointów z MovieController
+                        .requestMatchers("/api/movies/**").permitAll()
                         .requestMatchers("/api/promotions/**").permitAll()
                         .requestMatchers("/api/cities/**").permitAll()
                         .requestMatchers("/api/shows/**").permitAll()
