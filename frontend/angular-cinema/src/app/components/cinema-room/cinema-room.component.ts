@@ -58,6 +58,12 @@ export class CinemaRoomComponent implements OnInit{
         }
       )
   }
-
+  getTotalRows(): number[] {
+    const result = [];
+    for (let i = 0; i < Math.ceil(this.seats.length / 10); i++) {
+      result.push(i);
+    }
+    return result;
+  }
 
 }
