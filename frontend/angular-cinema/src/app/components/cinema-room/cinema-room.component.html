@@ -1,0 +1,11 @@
+<div class="cinema-room">
+  <div class="screen"></div>
+  <div
+    *ngFor="let seat of seats; let i = index"
+    class="seat"
+    [ngClass]="{ occupied: seat.occupied, selected: seat.selected }"
+    (click)="seat.occupied ? null : selectSeat(i)">
+    <mat-icon>event_seat</mat-icon>
+    <span class="seat-number">{{ i + 1 }}</span>
+  </div>
+</div>

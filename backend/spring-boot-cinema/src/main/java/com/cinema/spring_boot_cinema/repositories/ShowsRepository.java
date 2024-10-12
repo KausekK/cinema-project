@@ -20,5 +20,4 @@ public interface ShowsRepository extends JpaRepository<Shows, Long> {
     Page<Shows> findAllShowsByCityAndDayOfWeek(@Param("cityName") String cityName, @Param("dayOfWeek") String dayOfWeek, Pageable pageable);
 
 
-
 }

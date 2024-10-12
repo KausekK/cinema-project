@@ -3,7 +3,5 @@ export class MoviesPosters{
         public id: number,
         public posterUrl: string,
         public title: string
-    ){
-
-    }
+    ){}
 }

@@ -21,5 +21,7 @@ public class ShowsController {
     public Page<Shows> getShowsByCityAndDayOfWeek(@RequestParam("cityName") String cityName, @RequestParam("dayOfWeek") String dayOfWeek ,Pageable pageable) {
         return showsRepository.findAllShowsByCityAndDayOfWeek(cityName, dayOfWeek, pageable);
     }
+
+
 }
 

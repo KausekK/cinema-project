@@ -128,7 +128,19 @@ listMoviesWithCityParam(city: string, dayOfWeek: string) {
 }
 
 
+//TODO przed wybraniem miejsca uzytkownik musi sie zalogowc
 navigateToLogin() {
-  this.router.navigate(['/login']);
+  this.router.navigate(['/cinema-room']);
 }
+
+navigateToSeatsSelection(title: string, city: string, time: string): void {
+  this.router.navigate(['/cinema-room'], {
+    queryParams: {
+      movieTitle: title,
+      cityName: city,
+      showTime: time
+    }
+  });
+}
+
 }
