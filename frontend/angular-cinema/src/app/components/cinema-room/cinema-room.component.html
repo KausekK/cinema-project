@@ -1,12 +1,53 @@
+<div class="progress-bar">
+  <table class="progress-table">
+    <tr>
+      <td class="step" [ngClass]="{ active: currentStep === 1 }">
+        <span class="step-number">1</span>
+        <span class="step-label">Wybór miejsc</span>
+      </td>
+      <td class="step" [ngClass]="{ active: currentStep === 2 }">
+        <span class="step-number">2</span>
+        <span class="step-label">Wybór biletów</span>
+      </td>
+      <td class="step" [ngClass]="{ active: currentStep === 3 }">
+        <span class="step-number">3</span>
+        <span class="step-label">Zamówienie</span>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div class="show-info">
+  <img class="movie-poster" [src]="moviePosterUrl" [alt]="'Plakat filmu ' + movieTitle" />
+  <div class="movie-info-text">
+    <span class="movie-title">{{movieTitle}}</span>
+    <div class="movie-info-details">
+      <span>{{cityName}} | {{showTime | date : 'd.MM.YYYY'}} | {{showTime | date : 'HH:mm'}} | Sala {{hallNumber}} | {{selectedDay}}</span>
+    </div>
+  </div>
+</div>
+
+
 <div class="cinema-room">
-  <div class="screen"></div>
+  <div class="screen">EKRAN</div>
   <div *ngFor="let rowIndex of getTotalRows()" class="row">
     <div class="row-label">{{ rowIndex + 1 }}</div>
     <div class="seat-wrapper">
-      <div *ngFor="let seat of seats.slice(rowIndex * 10, rowIndex * 10 + 10); let i = index" class="seat" [ngClass]="{ occupied: seat.occupied, selected: seat.selected }" (click)="seat.occupied ? null : selectSeat(rowIndex * 10 + i)">
+      <div *ngFor="let seat of seats.slice(rowIndex * 10, rowIndex * 10 + 10); let i = index" 
+           class="seat" 
+           [ngClass]="{ occupied: seat.occupied, selected: seat.selected }" 
+           (click)="seat.occupied ? null : selectSeat(rowIndex * 10 + i)">
         <mat-icon>event_seat</mat-icon>
         <span class="seat-number">{{ i + 1 }}</span>
       </div>
     </div>
   </div>
 </div>
+
+<div class="buy-tickets-button-wrapper" *ngIf="countSeatsReservation.length > 0">
+  <button (click)="buyTickets()" class="buy-tickets-button">
+    <div class="main-text">KUP BILETY</div>
+    <div class="sub-text">Liczba wybranych miejsc: {{ countSeatsReservation.length }}</div>
+  </button>
+</div>
+

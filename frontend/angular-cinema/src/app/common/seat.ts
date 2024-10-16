@@ -1,11 +1,11 @@
 export class Seat {
     available: boolean;
-    hallName: string;
+    hallNumber: number;
     seatNumber: number;
   
-    constructor(available: boolean, hallName: string, seatNumber: number) {
+    constructor(available: boolean, hallNumber: number, seatNumber: number) {
       this.available = available;
-      this.hallName = hallName;
+      this.hallNumber = hallNumber;
       this.seatNumber = seatNumber;
     }
   }

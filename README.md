@@ -192,7 +192,37 @@ INSERT INTO Shows (Movies_id, show_time, start_time, day_of_week, City_id, Hall_
     (5, '2024-10-14 17:00:00', '17:00:00', 'Monday', 1, 2);
 
 
+CREATE TABLE TicketPrice (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    ticket_type ENUM('ulgowy', 'normalny', 'senior') NOT NULL,
+    day_of_week ENUM('Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota', 'Niedziela') NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
 
+);
+
+INSERT INTO TicketPrice (ticket_type, day_of_week, price) VALUES ('normalny', 'Poniedziałek', 16.00);
+INSERT INTO TicketPrice (ticket_type, day_of_week, price) VALUES ('normalny', 'Wtorek', 24.00);
+INSERT INTO TicketPrice (ticket_type, day_of_week, price) VALUES ('normalny', 'Środa', 19.00);
+INSERT INTO TicketPrice (ticket_type, day_of_week, price) VALUES ('normalny', 'Czwartek', 26.00);
+INSERT INTO TicketPrice (ticket_type, day_of_week, price) VALUES ('normalny', 'Piątek', 30.00);
+INSERT INTO TicketPrice (ticket_type, day_of_week, price) VALUES ('normalny', 'Sobota', 30.00);
+INSERT INTO TicketPrice (ticket_type, day_of_week, price) VALUES ('normalny', 'Niedziela', 30.00);
+
+INSERT INTO TicketPrice (ticket_type, day_of_week, price) VALUES ('ulgowy', 'Poniedziałek', 16.00);
+INSERT INTO TicketPrice (ticket_type, day_of_week, price) VALUES ('ulgowy', 'Wtorek', 24.00);
+INSERT INTO TicketPrice (ticket_type, day_of_week, price) VALUES ('ulgowy', 'Środa', 19.00);
+INSERT INTO TicketPrice (ticket_type, day_of_week, price) VALUES ('ulgowy', 'Czwartek', 24.00);
+INSERT INTO TicketPrice (ticket_type, day_of_week, price) VALUES ('ulgowy', 'Piątek', 28.00);
+INSERT INTO TicketPrice (ticket_type, day_of_week, price) VALUES ('ulgowy', 'Sobota', 28.00);
+INSERT INTO TicketPrice (ticket_type, day_of_week, price) VALUES ('ulgowy', 'Niedziela', 28.00);
+
+INSERT INTO TicketPrice (ticket_type, day_of_week, price) VALUES ('senior', 'Poniedziałek', 16.00);
+INSERT INTO TicketPrice (ticket_type, day_of_week, price) VALUES ('senior', 'Wtorek', 16.00);
+INSERT INTO TicketPrice (ticket_type, day_of_week, price) VALUES ('senior', 'Środa', 16.00);
+INSERT INTO TicketPrice (ticket_type, day_of_week, price) VALUES ('senior', 'Czwartek', 16.00);
+INSERT INTO TicketPrice (ticket_type, day_of_week, price) VALUES ('senior', 'Piątek', 26.00);
+INSERT INTO TicketPrice (ticket_type, day_of_week, price) VALUES ('senior', 'Sobota', 26.00);
+INSERT INTO TicketPrice (ticket_type, day_of_week, price) VALUES ('senior', 'Niedziela', 26.00);
 
 
 

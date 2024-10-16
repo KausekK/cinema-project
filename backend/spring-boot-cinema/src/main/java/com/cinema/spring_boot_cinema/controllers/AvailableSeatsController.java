@@ -26,11 +26,7 @@ public class AvailableSeatsController {
     public List<SeatProjection> getAvailableSeats(
             @RequestParam String cityName,
             @RequestParam String movieTitle,
-            @RequestParam String showTime
-    ) {
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-//        LocalDateTime showTimeParsed = LocalDateTime.parse(showTime, formatter);
-
+            @RequestParam String showTime) {
         return availableSeatsRepository.findTakenSeatsByCityMovieAndShowTime(cityName, movieTitle, showTime);
     }
 }

@@ -22,6 +22,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { CinemaRoomComponent } from './components/cinema-room/cinema-room.component';
 import { MatIconModule } from '@angular/material/icon';
+import { TicketSelectionComponent } from './components/ticket-selection/ticket-selection.component';
 
 
 const routes: Routes = [
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent},
   { path: 'login', component: LoginComponent},
   { path: 'cinema-room', component: CinemaRoomComponent},
+  { path: 'ticket-selection', component: TicketSelectionComponent},
   { path: '', redirectTo: '/main', pathMatch: 'full'},
   { path: '**', redirectTo: '/main', pathMatch: 'full'}
 ];
@@ -50,6 +52,7 @@ const routes: Routes = [
     RegisterComponent,
     LoginComponent,
     CinemaRoomComponent,
+    TicketSelectionComponent,
   ],
   imports: [
     BrowserModule,

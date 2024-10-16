@@ -9,7 +9,7 @@
     <!-- <link rel="stylesheet" href="styles.css"> -->
 </head>
 <body>
-    <nav>
+    <nav *ngIf="!isCinemaRoomPage && !isTicketSelectionPage">
         <img src="assets/logo/diamond-cinema.webp" alt="diamond-cinema" [routerLink]="['/main']"  style="cursor: pointer;">
         
         <table class="nav-table">
@@ -30,7 +30,7 @@
 
     <router-outlet></router-outlet>
 
-    <footer>
+    <footer *ngIf="!isCinemaRoomPage && !isTicketSelectionPage">
         <p>&copy; 2024 Diamond Cinema. Wszelkie prawa zastrzeżone.</p>
     </footer>
 </body>

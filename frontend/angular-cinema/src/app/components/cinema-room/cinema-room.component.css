@@ -4,6 +4,7 @@
   align-items: center;
   padding: 20px;
   background-color: #f0f0f0;
+  
 }
 
 .screen {
@@ -14,12 +15,13 @@
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
   text-align: center;
   margin-bottom: 20px;
+  color: black;
 }
 
 .row {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 5px; 
 }
 
 .row-label {
@@ -32,12 +34,12 @@
 
 .seat-wrapper {
   display: flex;
-  gap: 10px;
+  gap: 5px; 
 }
 
 .seat {
-  width: 50px;
-  height: 50px;
+  width: 40px; 
+  height: 40px; 
   background-color: #4CAF50;
   border-radius: 5px;
   display: flex;
@@ -58,13 +60,132 @@
 }
 
 .seat.selected {
-  background-color: #ffa500;
+  background-color: black;
 }
 
 .seat-number {
   position: absolute;
-  bottom: 5px;
-  right: 5px;
-  font-size: 0.8em;
+  bottom: 3px; 
+  right: 3px;
+  font-size: 0.7em; 
   color: white;
+}
+
+.buy-tickets-button-wrapper {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.buy-tickets-button {
+  background-color: #d4af37;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buy-tickets-button:hover {
+  background-color: #d4af37;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.buy-tickets-button:active {
+  background-color: #d4af37;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transform: scale(0.98);
+}
+
+.main-text {
+  font-size: 1.4em;
+  margin-bottom: 5px;
+}
+
+.sub-text {
+  font-size: 0.8em;
+}
+.progress-bar {
+  display: flex;
+  justify-content: space-around;
+  background-color: #000;
+  padding: 8px 0;
+  border-bottom: 3px solid #d4af37;
+}
+
+.step {
+  text-align: center;
+  color: #fff;
+}
+
+
+.step-number {
+  font-size: 1.2em;
+  display: block;
+  margin-bottom: 2px; 
+}
+
+.step.active .step-number,
+.step.active .step-label {
+  color: #d4af37; 
+}
+
+.show-info {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 100%;
+  padding: 15px;
+  margin: 20px 0;
+  background-color: #d4af37;
+  color: black;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  gap: 20px;
+}
+
+.movie-info-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-title {
+  font-size: 1.5em;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.movie-info-details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 1em;
+}
+
+
+.movie-poster {
+  width: 60px;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .show-info {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .movie-poster {
+    width: 80px;
+  }
 }

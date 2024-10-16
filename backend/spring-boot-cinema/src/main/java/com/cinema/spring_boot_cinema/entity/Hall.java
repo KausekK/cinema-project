@@ -13,8 +13,8 @@ public class Hall {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "hall_name", nullable = false, length = 100)
-    private String hallName;
+    @Column(name = "hall_number", nullable = false, length = 100)
+    private Integer hallNumber;
 
     @Column(name = "total_seats", nullable = false)
     private int totalSeats;

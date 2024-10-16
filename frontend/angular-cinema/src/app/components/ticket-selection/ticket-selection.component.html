@@ -1,0 +1,82 @@
+<div class="progress-bar">
+  <table class="progress-table">
+    <tr>
+      <td class="step" [ngClass]="{ active: currentStep === 1 }">
+        <span class="step-number">1</span>
+        <span class="step-label">Wybór miejsc</span>
+      </td>
+      <td class="step" [ngClass]="{ active: currentStep === 2 }">
+        <span class="step-number">2</span>
+        <span class="step-label">Wybór biletów</span>
+      </td>
+      <td class="step" [ngClass]="{ active: currentStep === 3 }">
+        <span class="step-number">3</span>
+        <span class="step-label">Zamówienie</span>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div class="show-info">
+  <img
+    class="movie-poster"
+    [src]="moviePosterUrl"
+    [alt]="'Plakat filmu ' + movieTitle"
+  />
+  <div class="movie-info-text">
+    <span class="movie-title">{{ movieTitle }}</span>
+    <div class="movie-info-details">
+      <span
+        >{{ cityName }} | {{ showTime | date : "d.MM.YYYY" }} |
+        {{ showTime | date : "HH:mm" }} | Sala {{ hallNumber }} |
+        {{ selectedDay }}</span
+      >
+    </div>
+  </div>
+</div>
+
+<body>
+  <div class="ticket-selection-container">
+    <h1>WYBIERZ BILETY</h1>
+
+    <div class="ticket-info">
+      <!-- <div class="ticket-type">
+        <span class="ticket-label">Normalny</span>
+        <span class="ticket-price">31,90 zł</span>
+        <button class="remove-ticket-btn">&times;</button>
+      </div> -->
+      <ul class="ticket-details">
+        <span *ngFor="let entry of seatsSelected | keyvalue">
+          <li *ngFor="let seat of entry.value">
+            Rząd: {{ entry.key }}, Miejsce: {{ seat }}
+            <mat-form-field
+              appearance="fill"
+              class="custom-width"
+            >
+              <mat-label>Rodzaj biletu</mat-label>
+              <mat-select class="small-select" [(ngModel)]="selectedTicketType"> 
+                <mat-option value="normalny">Normalny</mat-option>
+                <mat-option value="ulgowy">Ulgowy</mat-option>
+                <mat-option value="seniora">Senior</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </li>
+        </span>
+      </ul>
+    </div>
+    <hr />
+
+    <div class="price-summary">
+      <p>Liczba biletów: <strong>1</strong></p>
+      <p>Razem: <strong>33,90 zł</strong></p>
+      <p>w tym opłata serwisowa: <strong>2,00 zł</strong></p>
+    </div>
+
+    <div class="button-container">
+      <button class="next-btn">
+        DALEJ<br /><span>1 bilet - 33,90 zł</span>
+      </button>
+      <button class="back-btn">WRÓĆ</button>
+    </div>
+  </div>
+</body>

@@ -6,6 +6,7 @@ import { ShowsService } from '../../services/shows.service';
 import { Show } from '../../common/show';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { DataService } from '../../services/shared/data.service';
 
 @Component({
   selector: 'app-repertoire',
@@ -35,7 +36,9 @@ export class RepertoireComponent implements OnInit{
   constructor(private movieService: MoviesService,
     private citiesService: CitiesService,
     private showsService: ShowsService,
-    private router: Router
+    private router: Router,
+    private dataService: DataService
+
   ) {
     const now = new Date();
     const todayIndex = this.getAdjustedDayIndex(now.getDay());
@@ -48,6 +51,10 @@ export class RepertoireComponent implements OnInit{
   ngOnInit(): void {
     this.listCities();
     this.selectedDay = this.weekDays[this.getAdjustedDayIndex(new Date().getDay())];
+
+    this.dataService.selectedDay$.subscribe(day => {
+      this.selectedDay = day;
+    });
   }
 
   getRotatedWeekDays(todayIndex: number): string[] {
@@ -64,6 +71,7 @@ export class RepertoireComponent implements OnInit{
   }
   selectDay(day: string) {
     this.selectedDay = day;
+    this.dataService.setSelectedDay(day);
     if (this.selectedCity) {
       this.listMoviesWithCityParam(this.selectedCity, this.selectedDay);
     }
