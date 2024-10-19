@@ -12,5 +12,5 @@ import java.util.List;
 @CrossOrigin("http://localhost:4200")
 public interface TicketPriceRepository extends JpaRepository<TicketPrice, Long> {
 
-    List<TicketPrice> findTicketPriceByTicketTypeAndDayOfWeek(TicketType ticketType, DayOfWeek dayOfWeek);
+    List<TicketPrice> findTicketPriceByDayOfWeek(DayOfWeek dayOfWeek);
 }

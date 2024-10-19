@@ -1,38 +1,54 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { MoviesService } from '../../services/movies.service';
-import { Movie } from '../../common/movie';
 import { MoviesPosters } from '../../common/movies-posters';
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
-  styleUrl: './home-page.component.css'
+  styleUrls: ['./home-page.component.css']
 })
-export class HomePageComponent implements OnInit{
+export class HomePageComponent implements OnInit {
 
-  currentTrailerUrl: string ="mqqft2x_Aa4";
-  public movies: MoviesPosters[] =[]; 
+  public movies: MoviesPosters[] = [];
+  
+  trailers: string[] = [
+    'https://www.youtube.com/embed/t433PEQGErc?autoplay=1&mute=1&loop=1&playlist=t433PEQGErc&controls=0&showinfo=0&modestbranding=1',
+    'https://www.youtube.com/embed/LdOM0x0XDMo?autoplay=1&mute=1&loop=1&playlist=LdOM0x0XDMo&controls=0&showinfo=0&modestbranding=1',
+    'https://www.youtube.com/embed/mqqft2x_Aa4?autoplay=1&mute=1&loop=1&playlist=mqqft2x_Aa4&controls=0&showinfo=0&modestbranding=1',
+    'https://www.youtube.com/embed/je0aAf2f8XQ?autoplay=1&mute=1&loop=1&playlist=je0aAf2f8XQ&controls=0&showinfo=0&modestbranding=1',
 
-  constructor(private moviesService: MoviesService){
-  }
+  ];
+
+  currentTrailerIndex: number = 0;
+
+  constructor(private moviesService: MoviesService, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     this.getMoviesPosters();
   }
 
-  previousTrailer(){
-    this.currentTrailerUrl="LdOM0x0XDMo"
+  getSafeTrailerUrl(): SafeResourceUrl {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(this.currentTrailerUrl);
   }
 
-  nextTrailer(){
-    this.currentTrailerUrl="t433PEQGErc"
+  get currentTrailerUrl(): string {
+    return this.trailers[this.currentTrailerIndex];
   }
 
-  getMoviesPosters(){
+  previousTrailer(): void {
+    this.currentTrailerIndex = (this.currentTrailerIndex - 1 + this.trailers.length) % this.trailers.length;
+  }
+
+  nextTrailer(): void {
+    this.currentTrailerIndex = (this.currentTrailerIndex + 1) % this.trailers.length;
+  }
+
+  getMoviesPosters() {
     this.moviesService.getMoviesPostersUrl().subscribe(
-      data =>{
+      data => {
         this.movies = data;
       }
-    )
+    );
   }
 }

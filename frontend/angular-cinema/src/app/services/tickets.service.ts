@@ -14,7 +14,8 @@ export class TicketsService {
   constructor(private httpClient: HttpClient) { }
 
 
-  getPriceForTickets(ticketType: string, dayOfWeek: string): Observable<Ticket[]>{
-      return this.httpClient.get<Ticket[]>(`${this.baseUrl}/price?ticketType=${ticketType}&dayOfWeek=${dayOfWeek}`);
-  }
+  getTicketTypesAndPrices(dayOfWeek: string): Observable<Ticket[]> {
+  return this.httpClient.get<Ticket[]>(`${this.baseUrl}/prices?dayOfWeek=${dayOfWeek}`);
+}
+
 }

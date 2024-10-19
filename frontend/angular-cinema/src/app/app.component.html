@@ -9,29 +9,30 @@
     <!-- <link rel="stylesheet" href="styles.css"> -->
 </head>
 <body>
-    <nav *ngIf="!isCinemaRoomPage && !isTicketSelectionPage">
-        <img src="assets/logo/diamond-cinema.webp" alt="diamond-cinema" [routerLink]="['/main']"  style="cursor: pointer;">
-        
-        <table class="nav-table">
-            <tr>
-                <td><a routerLink="/repertoire" routerLinkActive="active-link">Repertuar</a></td>
-                <td><a routerLink="/upcoming" routerLinkActive="active-link">Najbliższe Premiery</a></td>
-                <td><a routerLink="/pricing" routerLinkActive="active-link">Cennik Biletów</a></td>
-                <td><a routerLink="/promotions" routerLinkActive="active-link">Promocje</a></td>
-                <td><a routerLink="/contact" routerLinkActive="active-link">Kontakt</a></td>
-            </tr>
-        </table>
-        <div class="auth-links">
-            <p><a routerLink="/login"><i class="bi bi-person"></i> Logowanie</a></p>
-            <p><a routerLink="/register"><i class="bi bi-person-plus"></i> Rejestracja</a></p>
-        </div>
-    </nav>
+    <div id="content">
+        <nav *ngIf="!isCinemaRoomPage && !isTicketSelectionPage">
+            <img src="assets/logo/diamond-cinema.webp" alt="diamond-cinema" [routerLink]="['/main']" style="cursor: pointer;">
+            <table class="nav-table">
+                <tr>
+                    <td><a routerLink="/repertoire" routerLinkActive="active-link">Repertuar</a></td>
+                    <td><a routerLink="/upcoming" routerLinkActive="active-link">Najbliższe Premiery</a></td>
+                    <td><a routerLink="/pricing" routerLinkActive="active-link">Cennik Biletów</a></td>
+                    <td><a routerLink="/promotions" routerLinkActive="active-link">Promocje</a></td>
+                    <td><a routerLink="/contact" routerLinkActive="active-link">Kontakt</a></td>
+                </tr>
+            </table>
+            <div class="auth-links">
+                <p><a routerLink="/login"><i class="bi bi-person"></i> Logowanie</a></p>
+                <p><a routerLink="/register"><i class="bi bi-person-plus"></i> Rejestracja</a></p>
+            </div>
+        </nav>
 
+        <router-outlet></router-outlet>
+    </div>
 
-    <router-outlet></router-outlet>
-
-    <footer *ngIf="!isCinemaRoomPage && !isTicketSelectionPage">
+    <!-- <footer *ngIf="!isCinemaRoomPage && !isTicketSelectionPage">
         <p>&copy; 2024 Diamond Cinema. Wszelkie prawa zastrzeżone.</p>
-    </footer>
+    </footer> -->
 </body>
+
 </html>

@@ -1,8 +1,14 @@
-<div class="youtube-container">
-    <button class="arrow-btn left-arrow" (click)="previousTrailer()">➜</button>
-    <youtube-player [videoId]="currentTrailerUrl" loadApi="true"></youtube-player>   
-     <button class="arrow-btn right-arrow" (click)="nextTrailer()">➜</button>
+
+
+<div class="video-background">
+    <button class="arrow-btn left-arrow" (click)="previousTrailer()">⟵</button>
+
+    <iframe id="yt-background-video" [src]="getSafeTrailerUrl()" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    
+    <button class="arrow-btn right-arrow" (click)="nextTrailer()">⟶</button>
 </div>
+
+  
 
 <p class="section-title">U nas na ekranach</p>
 <div class="movies-container">
