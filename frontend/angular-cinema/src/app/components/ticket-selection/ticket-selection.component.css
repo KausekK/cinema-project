@@ -235,4 +235,10 @@ hr {
   margin-top: 10px;
   margin-left: 3%
 }
+.next-btn:disabled {
+  background-color: #d4af37;  
+  color: #aaa;  
+  cursor: not-allowed;  
+  opacity: 0.6;  
+}
 

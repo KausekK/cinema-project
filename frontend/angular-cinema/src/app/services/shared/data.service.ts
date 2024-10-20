@@ -15,6 +15,9 @@ export class DataService {
   private showTimeSource = new BehaviorSubject<string>('');
   showTime$ = this.showTimeSource.asObservable();
 
+  private showIdSource = new BehaviorSubject<number>(0);
+  showId$ = this.showIdSource.asObservable();
+
   private hallNumberSource = new BehaviorSubject<number>(0);
   hallNumber$ = this.hallNumberSource.asObservable();
 
@@ -26,6 +29,9 @@ export class DataService {
 
   private selectedDaySource = new BehaviorSubject<string>(new Date().toLocaleDateString('pl-PL', { weekday: 'long' }));
   selectedDay$ = this.selectedDaySource.asObservable();
+
+  private selectedSeatsNumbersSource = new BehaviorSubject<number[]>([])
+  selectedSeatsNumbers$ = this.selectedSeatsNumbersSource.asObservable();
 
   setSelectedDay(day: string) {
     this.selectedDaySource.next(day);
@@ -44,6 +50,10 @@ export class DataService {
   setShowTime(time: string) {
     this.showTimeSource.next(time);
   }
+  
+  setShowId(id: number){
+    this.showIdSource.next(id);
+  }
 
   setHallNumber(hall: number) {
     this.hallNumberSource.next(hall);
@@ -51,5 +61,8 @@ export class DataService {
 
   setSelectedSeats(seats: Map<number, number[]>) {
     this.selectedSeatsSource.next(seats)
+  }
+  setSelectedSeatsNumber(seats: number[]){
+    this.selectedSeatsNumbersSource.next(seats);
   }
 }

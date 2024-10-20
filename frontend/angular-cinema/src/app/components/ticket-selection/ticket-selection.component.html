@@ -87,7 +87,7 @@
     <button
       class="next-btn"
       [disabled]="!allTicketTypesSelected()"
-    >
+    (click)="reserveSeats()">
       DALEJ<br /><span>{{ getTotalTickets() }} bilet(y) - {{ calculateTotalPrice() | number: '1.2-2' }} zł</span>
     </button>
     <button class="back-btn">WRÓĆ</button>

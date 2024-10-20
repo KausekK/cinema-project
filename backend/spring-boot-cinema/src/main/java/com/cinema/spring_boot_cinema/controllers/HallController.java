@@ -1,9 +1,6 @@
 package com.cinema.spring_boot_cinema.controllers;
 
 import com.cinema.spring_boot_cinema.dto.HallForSpecificShow;
-import com.cinema.spring_boot_cinema.dto.SeatProjection;
-import com.cinema.spring_boot_cinema.entity.Hall;
-import com.cinema.spring_boot_cinema.repositories.AvailableSeatsRepository;
 import com.cinema.spring_boot_cinema.repositories.HallRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

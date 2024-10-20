@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/shared/data.service';
 import { TicketsService } from '../../services/tickets.service';
 import { Ticket } from '../../common/ticket';
+import { SeatsService } from '../../services/seats.service';
 
 @Component({
   selector: 'app-ticket-selection',
@@ -12,6 +13,7 @@ export class TicketSelectionComponent implements OnInit{
   movieTitle: string = '';
   cityName: string = '';
   showTime: string = '';
+  showId: number = 0;
   hallNumber: number = 0;
   selectedDay: string = '';
   moviePosterUrl: string = '';
@@ -22,15 +24,18 @@ export class TicketSelectionComponent implements OnInit{
   ticketPrices: Ticket[] = [];
   ticketTypes: string[] = [];
   today = new Date();
+  selectedSeatsNumbers: number [] = [];
 
   constructor(
     private dataService: DataService,
-    private ticketsService: TicketsService
+    private ticketsService: TicketsService,
+    private seatsService: SeatsService
   ) {}
 
   ngOnInit(): void {
     this.dataService.movieTitle$.subscribe(title => (this.movieTitle = title));
     this.dataService.cityName$.subscribe(city => (this.cityName = city));
+    this.dataService.showId$.subscribe(id => (this.showId = id))
     this.dataService.hallNumber$.subscribe(hall => (this.hallNumber = hall));
     this.dataService.selectedDay$.subscribe(day => {
       this.changeDaySymbolToName(day); 
@@ -38,9 +43,10 @@ export class TicketSelectionComponent implements OnInit{
     this.dataService.showTime$.subscribe(time => (this.showTime = time));
     this.dataService.posterUrl$.subscribe(poster => (this.moviePosterUrl = poster));
     this.dataService.selectedSeats$.subscribe(seats => (this.seatsSelected = seats));
+    this.dataService.selectedSeatsNumbers$.subscribe(seats => (this.selectedSeatsNumbers = seats));
 
     this.initializeTicketTypeSelection();
-
+    console.log(this.showId +" id")
     this.fetchTicketTypesAndPrices(this.selectedDay);
   }
 
@@ -125,5 +131,16 @@ export class TicketSelectionComponent implements OnInit{
       }
     }
     return true;
+  }
+
+  reserveSeats(): void {
+    this.seatsService.addAvailableSeats(this.showId, this.selectedSeatsNumbers).subscribe(
+      response => {
+        console.log('Seats added successfully');
+      },
+      error => {
+        console.error('Error adding seats');
+      }
+    );
   }
 }

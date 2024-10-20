@@ -17,6 +17,7 @@ export class CinemaRoomComponent implements OnInit{
   hall: Hall[] = [];
   countSeatsReservation: number [] =[];
   currentStep: number = 1; 
+  showId: number = 0;
   movieTitle: string = '';
   cityName: string = '';
   showTime: string = '';
@@ -36,6 +37,7 @@ export class CinemaRoomComponent implements OnInit{
 
   ngOnInit(): void {
     this.activeRoute.queryParams.subscribe(params => {
+      this.showId = params['id'];
       this.movieTitle = params['movieTitle'];
       this.cityName = params['cityName'];
       this.showTime = params['showTime'];
@@ -47,6 +49,7 @@ export class CinemaRoomComponent implements OnInit{
       this.dataService.setMovieTitle(this.movieTitle);
       this.dataService.setCityName(this.cityName);
       this.dataService.setShowTime(this.showTime);
+      this.dataService.setShowId(this.showId);
     });
     
   
@@ -117,6 +120,7 @@ export class CinemaRoomComponent implements OnInit{
       }
   
       this.dataService.setSelectedSeats(this.rowsAndSeats);
+      this.dataService.setSelectedSeatsNumber(this.countSeatsReservation);
       console.log("Zarezerwowane miejsca:", this.countSeatsReservation);
       console.log("Rzędy i miejsca:", this.rowsAndSeats);
     }
@@ -151,7 +155,9 @@ export class CinemaRoomComponent implements OnInit{
   }
 
   buyTickets(): void {
-    this.router.navigate(['/ticket-selection'], { state: { selectedSeats: this.countSeatsReservation } });
+    this.router.navigate(['/ticket-selection'], 
+      // { state: { selectedSeats: this.countSeatsReservation } }
+    );
   }
 
   setStep(step: number) {

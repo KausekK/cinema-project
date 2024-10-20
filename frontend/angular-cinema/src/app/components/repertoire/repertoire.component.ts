@@ -27,10 +27,12 @@ export class RepertoireComponent implements OnInit{
   movies: Movie[] = [];
   shows: Show[]=[];
 
+  showId: number = 0;
+
   pageNumber: number = 1;
   pageSize: number = 10;
   totalElement: number = 0;
-  groupedMovies: { movie: Movie; times: string[]; }[] | undefined;
+  groupedMovies: { movie: Movie; times: string[]; showIds: number[] }[] | undefined;
   isTrailerOpen: boolean = false;
 
   constructor(private movieService: MoviesService,
@@ -101,11 +103,11 @@ listMoviesWithCityParam(city: string, dayOfWeek: string) {
   this.showsService.getShowsByCity(city, dayOfWeek, this.pageNumber - 1, this.pageSize).subscribe(
     data => {
       if (data && data.content) {
-        const groupedShows = new Map<number, { movie: Movie, times: string[] }>();
+        const groupedShows = new Map<number, { movie: Movie, times: string[], showIds: number[] }>();
 
         data.content.forEach((show: Show) => {
           if (!groupedShows.has(show.movie.id)) {
-            groupedShows.set(show.movie.id, { movie: show.movie, times: [show.showTime] });
+            groupedShows.set(show.movie.id, { movie: show.movie, times: [show.showTime], showIds: [show.id] });
           } else {
             groupedShows.get(show.movie.id)!.times.push(show.showTime);
           }
@@ -141,14 +143,16 @@ navigateToLogin() {
   this.router.navigate(['/cinema-room']);
 }
 
-navigateToSeatsSelection(title: string, city: string, time: string): void {
+navigateToSeatsSelection(showId: number, title: string, city: string, time: string): void {
   this.router.navigate(['/cinema-room'], {
     queryParams: {
+      id: showId,
       movieTitle: title,
       cityName: city,
       showTime: time
     }
   });
 }
+
 
 }

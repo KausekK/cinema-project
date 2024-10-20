@@ -2,7 +2,9 @@ package com.cinema.spring_boot_cinema.repositories;
 
 import com.cinema.spring_boot_cinema.dto.SeatProjection;
 import com.cinema.spring_boot_cinema.entity.AvailableSeats;
+import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -22,4 +24,10 @@ public interface AvailableSeatsRepository extends JpaRepository<AvailableSeats, 
     List<SeatProjection> findTakenSeatsByCityMovieAndShowTime(@Param("cityName") String cityName,
                                                               @Param("title") String title,
                                                               @Param("showTime") String showTime );
+
+    @Modifying
+    @Transactional
+    @Query(value = "INSERT INTO available_seats (Shows_id, seat_number, is_available) VALUES (:showId, :seatNumber, false)", nativeQuery = true)
+    void insertAvailableSeat(@Param("showId") Long showId, @Param("seatNumber") String seatNumber);
+
 }
