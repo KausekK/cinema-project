@@ -1,0 +1,66 @@
+<div class="main-content page-m">
+    <div class="section-content section-content-p30">
+      <div class="container-fluid">
+        <form *ngIf="checkoutFormGroup" [formGroup]="checkoutFormGroup" (ngSubmit)="onSubmit()">
+            <!-- customer form group -->
+          <div formGroupName="customer" class="form-area">
+            <h3>Dane klienta</h3>
+  
+            <div class="row">
+              <div class="col-md-2"><label>Imie</label></div>
+              <div class="col-md-9">
+                <input formControlName="firstName" type="text" class="form-control">
+                <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)" class="alert alert-danger mt-1">
+                  <div *ngIf="firstName?.errors?.['required']">Imie jest wymagane</div>
+                  <div *ngIf="firstName?.errors?.['minlength']">Imie musi składać się przynajmniej z 2 liter</div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="row">
+              <div class="col-md-2"><label>Nazwisko</label></div>
+              <div class="col-md-9">
+                <input formControlName="lastName" type="text" class="form-control">
+                <div *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)" class="alert alert-danger mt-1">
+                  <div *ngIf="lastName?.errors?.['required']">Nazwisko jest wymagane</div>
+                  <div *ngIf="lastName?.errors?.['minlength']">Nawisko musi składać się przynajmniej z 2 liter</div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="row">
+              <div class="col-md-2"><label>Email</label></div>
+              <div class="col-md-9">
+                <input formControlName="email" type="email" class="form-control">
+                <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="alert alert-danger mt-1">
+                  <div *ngIf="email?.errors?.['required']">Email jest wymagany</div>
+                  <div *ngIf="email?.errors?.['pattern']">Email nie istnieje</div>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Stripe Elements Credit Card Section -->
+          <div class="form-area">
+            <h3>Karta Kredytowa</h3>
+            <div id="card-element">
+              <!-- Stripe element will be inserted here -->
+            </div>
+            <!-- <div id="card-errors" role="alert" class="alert alert-danger mt-1"></div> -->
+          </div>
+  
+          <!-- Order details -->
+          <div class="form-area">
+            <h3>Zamówienie</h3>
+            <p>Do zapłaty: {{ totalPrice | currency: 'PLN' }}</p>
+          </div>
+  
+          <!-- submit button-->
+          <div class="text-center">
+            <button type="submit" class="btn btn-info" [disabled]="checkoutFormGroup.invalid" [disabled]="isDisabled">Zapłać</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

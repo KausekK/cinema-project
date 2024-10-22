@@ -1,0 +1,101 @@
+.form-area {
+    background-color: #fff8f0;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+    margin: 40px auto;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    max-width: 600px; 
+  }
+  
+  .form-area h3 {
+    color: #d4af37;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+  }
+  
+  .form-area label {
+    display: block;
+    margin-top: 20px;
+    color: #2c2c2c;
+    font-weight: bold;
+  }
+  
+  .form-area input {
+    width: 95%; 
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #d4af37;
+    border-radius: 5px;
+    font-size: 1.1em; 
+  }
+  
+  #card-element {
+    width: 95%; 
+    padding: 15px;
+    margin: 15px auto;
+    border: 2px solid #d4af37;
+    border-radius: 5px;
+    font-size: 1.1em;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  #card-errors {
+    color: red;
+    font-size: 1em; 
+    margin-top: 10px;
+  }
+  
+  .btn-info {
+    background-color: #d4af37;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px; 
+    font-size: 1.2em; 
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-info:hover {
+    background-color: #c49a2c;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .alert {
+    color: red;
+    font-size: 1em; 
+    margin-top: 10px;
+  }
+  
+  .input-space {
+    margin-bottom: 25px;
+  }
+  
+  .form-control {
+    width: 95%; 
+    padding: 12px;
+    margin: 15px 0;
+    border: 1px solid #d4af37;
+    border-radius: 5px;
+    font-size: 1.1em;
+  }
+  
+  .container-fluid {
+    padding: 30px;
+  }
+  
+  .section-content-p30 {
+    padding: 40px 0; 
+  }
+  
+  .main-content {
+    padding: 30px;
+    background-color: #f9f9f9;
+  }
+
+ 

@@ -22,6 +22,7 @@ import { LoginComponent } from './components/login/login.component';
 import { CinemaRoomComponent } from './components/cinema-room/cinema-room.component';
 import { MatIconModule } from '@angular/material/icon';
 import { TicketSelectionComponent } from './components/ticket-selection/ticket-selection.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 const routes: Routes = [
   { path: 'main', component: HomePageComponent },
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'cinema-room', component: CinemaRoomComponent },
   { path: 'ticket-selection', component: TicketSelectionComponent },
+  { path: 'checkout', component: CheckoutComponent},
   { path: '', redirectTo: '/main', pathMatch: 'full' },
   { path: '**', redirectTo: '/main', pathMatch: 'full' }
 ];
@@ -51,6 +53,7 @@ const routes: Routes = [
     LoginComponent,
     CinemaRoomComponent,
     TicketSelectionComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,

@@ -33,6 +33,9 @@ export class DataService {
   private selectedSeatsNumbersSource = new BehaviorSubject<number[]>([])
   selectedSeatsNumbers$ = this.selectedSeatsNumbersSource.asObservable();
 
+  private totalPriceSource = new BehaviorSubject<number>(0);
+  totalPrice$ = this.totalPriceSource.asObservable();
+
   setSelectedDay(day: string) {
     this.selectedDaySource.next(day);
   }
@@ -64,5 +67,9 @@ export class DataService {
   }
   setSelectedSeatsNumber(seats: number[]){
     this.selectedSeatsNumbersSource.next(seats);
+  }
+
+  setTotalPrice(price: number){
+    this.totalPriceSource.next(price)
   }
 }

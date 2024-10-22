@@ -35,7 +35,7 @@ export class TicketSelectionComponent implements OnInit{
   ngOnInit(): void {
     this.dataService.movieTitle$.subscribe(title => (this.movieTitle = title));
     this.dataService.cityName$.subscribe(city => (this.cityName = city));
-    this.dataService.showId$.subscribe(id => (this.showId = id))
+    // this.dataService.showId$.subscribe(id => (this.showId = id))
     this.dataService.hallNumber$.subscribe(hall => (this.hallNumber = hall));
     this.dataService.selectedDay$.subscribe(day => {
       this.changeDaySymbolToName(day); 
@@ -43,7 +43,7 @@ export class TicketSelectionComponent implements OnInit{
     this.dataService.showTime$.subscribe(time => (this.showTime = time));
     this.dataService.posterUrl$.subscribe(poster => (this.moviePosterUrl = poster));
     this.dataService.selectedSeats$.subscribe(seats => (this.seatsSelected = seats));
-    this.dataService.selectedSeatsNumbers$.subscribe(seats => (this.selectedSeatsNumbers = seats));
+    // this.dataService.selectedSeatsNumbers$.subscribe(seats => (this.selectedSeatsNumbers = seats));
 
     this.initializeTicketTypeSelection();
     console.log(this.showId +" id")
@@ -117,6 +117,7 @@ export class TicketSelectionComponent implements OnInit{
       totalPrice += price;
     }
     totalPrice += this.serviceFee; 
+    this.dataService.setTotalPrice(totalPrice);
     return totalPrice;
   }
 
@@ -133,14 +134,14 @@ export class TicketSelectionComponent implements OnInit{
     return true;
   }
 
-  reserveSeats(): void {
-    this.seatsService.addAvailableSeats(this.showId, this.selectedSeatsNumbers).subscribe(
-      response => {
-        console.log('Seats added successfully');
-      },
-      error => {
-        console.error('Error adding seats');
-      }
-    );
-  }
+  // reserveSeats(): void {
+  //   this.seatsService.addAvailableSeats(this.showId, this.selectedSeatsNumbers).subscribe(
+  //     response => {
+  //       console.log('Seats added successfully');
+  //     },
+  //     error => {
+  //       console.error('Error adding seats');
+  //     }
+  //   );
+  // }
 }
