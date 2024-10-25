@@ -4,8 +4,6 @@
     height: 70%;
     overflow: hidden;
     margin: 20px 0; 
-    z-index: 0; 
-
 }
 
 #yt-background-video {
@@ -13,9 +11,7 @@
     height: 100%;
     pointer-events: none;
     object-fit: cover; 
-    z-index: 0;
 }
-
 
 .arrow-btn {
     position: absolute;
@@ -26,7 +22,6 @@
     color: #d4af37;
     font-size: 2em;
     cursor: pointer;
-    z-index: 1;
     padding: 10px;
 }
 
@@ -42,87 +37,22 @@
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-.youtube-container {
-    position: relative;
-    text-align: center;
-    margin: 20px 0;
-    z-index: 1; 
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    position: relative;
-    z-index: 1; 
-}
-
-nav ul li a:hover {
-    text-decoration: underline;
-}
-
-table {
-    width: 100%;
-}
-
-th {
-    text-align: left;
-}
-
-td {
-    padding: 10px;
-}
-
-table td, table th {
-    border-bottom: 1px solid;
-}
-
-.nav-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: green;
-    z-index: 1; 
-}
-
-.nav-table td {
-    text-align: center;
-}
-
-.nav-table td a {
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px;
-    position: relative;
-    z-index: 1; 
-}
-
-.nav-table td a:hover {
-    text-decoration: underline;
-}
-
 .movies-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-    position: relative;
-    z-index: 1; 
 }
 
 .movie-item {
     text-align: center;
     width: 180px;
     transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 350px; 
 }
 
 .movie-item img {
@@ -130,16 +60,24 @@ table td, table th {
     height: auto;
     border-radius: 10px;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
-}
-
-.movie-item:hover {
-    transform: scale(1.05);
+    flex-grow: 1; 
 }
 
 .movie-title {
     margin-top: 10px;
     font-weight: bold;
     color: #d4af37;
+    font-size: 16px;
+    line-height: 1.2em;
+    min-height: 2.4em; 
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    text-align: center;
+}
+
+.movie-item:hover {
+    transform: scale(1.05);
 }
 
 .section-title {
@@ -148,13 +86,4 @@ table td, table th {
     text-align: center;
     color: #d4af37;
     margin-bottom: 20px;
-    position: relative;
-    z-index: 1; 
-}
-
-.table-container {
-    width: 100%;
-    position: relative;
-    z-index: 1; 
-    color: #1e1e1e;
 }

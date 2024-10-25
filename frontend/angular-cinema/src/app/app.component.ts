@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { AuthenticationService } from './services/authentication.service';
 
 @Component({
   selector: 'app-root',
@@ -12,12 +13,20 @@ export class AppComponent {
   isCinemaRoomPage: boolean = false;
   isTicketSelectionPage: boolean = false;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private authService: AuthenticationService) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.isCinemaRoomPage = event.urlAfterRedirects.includes('/cinema-room');
         this.isTicketSelectionPage = event.urlAfterRedirects.includes('/ticket-selection')
       }
     });
+  }
+
+  logout(): void {
+    this.authService.logout();
+    this.router.navigate(['/login']); 
+  }
+  isAuthenticated(): boolean {
+    return this.authService.isAuthenticated();
   }
 }

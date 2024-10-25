@@ -18,12 +18,12 @@
   }
 
   .table th, .table td {
-    border: 2px solid #ffc107;
+    border: 2px solid gray;
     padding: 15px;
   }
 
   .table th {
-    background-color: #d4af37;
+    background-color: rgb(145, 145, 145);
     color: #fff;
     font-weight: bold;
   }

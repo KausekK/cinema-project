@@ -239,3 +239,24 @@ BEGIN
     WHERE Shows_id = NEW.Shows_id AND seat_number = NEW.seat_number;
 END$$
 DELIMITER ;
+
+----- dodawanie insertow z data na najblizszy tydzien, od 25 pazdziernika(piatek)
+DELIMITER $$
+
+CREATE EVENT add_weekly_showtimes
+ON SCHEDULE EVERY 1 WEEK
+STARTS '2024-10-25 00:00:00'
+DO
+BEGIN
+    -- Najpierw usuwamy stare dane starsze niż 7 dni
+    DELETE FROM Shows
+    WHERE show_time < CURDATE() - INTERVAL 7 DAY;
+    
+    -- Następnie dodajemy nowe wpisy z przesunięciem dat o 7 dni
+    INSERT INTO Shows (Movies_id, show_time, City_id, Hall_id, day_of_week)
+    SELECT Movies_id, DATE_ADD(show_time, INTERVAL 7 DAY), City_id, Hall_id, day_of_week
+    FROM Shows
+    WHERE show_time BETWEEN '2024-10-18 00:00:00' AND '2024-10-24 23:59:59';
+END $$
+
+DELIMITER ;

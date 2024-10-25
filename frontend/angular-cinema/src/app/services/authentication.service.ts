@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,20 @@ export class AuthenticationService {
 
   login(authenticationRequest: AuthenticationRequest): Observable<AuthenticationResponse> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post<AuthenticationResponse>(`${this.baseUrl}/authenticate`, authenticationRequest, { headers });
+    return this.http.post<AuthenticationResponse>(`${this.baseUrl}/authenticate`, authenticationRequest, { headers })
+    .pipe(
+      tap(response => {
+        localStorage.setItem('userToken', response.token);
+      })
+    );;
+  }
+
+  logout() {
+    localStorage.removeItem('userToken');
+  }
+
+  public isAuthenticated(): boolean {
+    return localStorage.getItem('userToken') !== null;
   }
 }
 

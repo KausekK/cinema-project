@@ -32,6 +32,7 @@ public class SecurityConfiguration {
                         .requestMatchers("/api/hall/**").permitAll()
                         .requestMatchers("/api/tickets/**").permitAll()
                         .requestMatchers("/api/checkout/**").permitAll()
+                        .requestMatchers("/api/upcoming-movies/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session

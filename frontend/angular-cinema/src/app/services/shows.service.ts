@@ -14,10 +14,10 @@ export class ShowsService {
   constructor(private httpClient: HttpClient) { }
 
 
-  getShowsByCity(cityName: string, dayOfWeek: string, page: number, size: number): Observable<GetResponseShows> {
+  getShowsByCity(cityName: string, dayOfWeek: string): Observable<Show[]> {
     const englishDay = this.getEnglishDayName(dayOfWeek);
-    const searchUrl = `${this.baseUrl}?cityName=${cityName}&dayOfWeek=${englishDay}&page=${page}&size=${size}`;
-    return this.httpClient.get<GetResponseShows>(searchUrl);
+    const searchUrl = `${this.baseUrl}?cityName=${cityName}&dayOfWeek=${englishDay}`;
+    return this.httpClient.get<Show[]>(searchUrl);
   }
   
 
@@ -45,15 +45,6 @@ export class ShowsService {
   
 }
 
-  
-interface GetResponseShows {
-  content: Show[];
-  page: {
-    number: number;
-    size: number;
-    totalElements: number;
-    totalPages: number;
-  };
-}
+
 
   

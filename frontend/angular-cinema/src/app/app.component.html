@@ -22,9 +22,15 @@
                 </tr>
             </table>
             <div class="auth-links">
-                <p><a routerLink="/login"><i class="bi bi-person"></i> Logowanie</a></p>
-                <p><a routerLink="/register"><i class="bi bi-person-plus"></i> Rejestracja</a></p>
-            </div>
+                <ng-container *ngIf="!isAuthenticated()">
+                  <p><a routerLink="/login"><i class="bi bi-person"></i> Logowanie</a></p>
+                  <p><a routerLink="/register"><i class="bi bi-person-plus"></i> Rejestracja</a></p>
+                </ng-container>
+              
+                <ng-container *ngIf="isAuthenticated()">
+                  <p><a (click)="logout()"><i class="bi bi-box-arrow-right"></i> Wyloguj się</a></p>
+                </ng-container>
+              </div>
         </nav>
 
         <router-outlet></router-outlet>

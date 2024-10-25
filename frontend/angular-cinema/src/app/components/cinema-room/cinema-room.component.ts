@@ -98,7 +98,7 @@ export class CinemaRoomComponent implements OnInit{
       const seatInRow = this.getSeatFromSeatIndex(index);  
   
       if (this.seats[index].selected) {
-        this.countSeatsReservation.push(index);
+        this.countSeatsReservation.push(index + 1);
   
         if (this.rowsAndSeats.has(row)) {
           this.rowsAndSeats.get(row)!.push(seatInRow); 

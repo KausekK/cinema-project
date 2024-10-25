@@ -23,6 +23,8 @@ import { CinemaRoomComponent } from './components/cinema-room/cinema-room.compon
 import { MatIconModule } from '@angular/material/icon';
 import { TicketSelectionComponent } from './components/ticket-selection/ticket-selection.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { AuthGuard } from './guards/auth-guard.guard';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 const routes: Routes = [
   { path: 'main', component: HomePageComponent },
@@ -33,9 +35,9 @@ const routes: Routes = [
   { path: 'movie-details/:title', component: MoveDetailsComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'cinema-room', component: CinemaRoomComponent },
-  { path: 'ticket-selection', component: TicketSelectionComponent },
-  { path: 'checkout', component: CheckoutComponent},
+  { path: 'cinema-room', component: CinemaRoomComponent, canActivate: [AuthGuard] },
+  { path: 'ticket-selection', component: TicketSelectionComponent, canActivate: [AuthGuard]},
+  { path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard]},
   { path: '', redirectTo: '/main', pathMatch: 'full' },
   { path: '**', redirectTo: '/main', pathMatch: 'full' }
 ];
@@ -67,9 +69,10 @@ const routes: Routes = [
     MatInputModule,
     ReactiveFormsModule,
     MatIconModule,
-    YouTubePlayerModule  
+    YouTubePlayerModule,
+    MatPaginatorModule  
   ],
-  providers: [MoviesService],
+  providers: [MoviesService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

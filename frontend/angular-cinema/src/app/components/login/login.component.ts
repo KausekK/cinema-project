@@ -6,15 +6,17 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
   loginFormGroup!: FormGroup;
+  loginError: string = ''; 
 
-  constructor(private formBuilder: FormBuilder, 
+  constructor(
+    private formBuilder: FormBuilder,
     private authService: AuthenticationService,
-    private router: Router) {};  
-
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.loginFormGroup = this.formBuilder.group({
@@ -30,17 +32,18 @@ export class LoginComponent {
       this.loginFormGroup.markAllAsTouched();
       return;
     }
-    const loginData = this.loginFormGroup.get('login')?.value;  
-  
+    
+    const loginData = this.loginFormGroup.get('login')?.value;
+
     this.authService.login(loginData).subscribe({
       next: (response) => {
         localStorage.setItem('token', response.token);
-        this.router.navigate(['/main']);  
+        this.router.navigate(['/main']);
       },
       error: (error) => {
         console.error('Błąd podczas logowania', error);
+        this.loginError = 'Nieprawidłowy adres e-mail lub hasło.'; 
       }
     });
   }
-  
 }

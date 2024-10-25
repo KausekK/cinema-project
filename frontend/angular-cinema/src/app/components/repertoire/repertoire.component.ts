@@ -15,7 +15,7 @@ import { DataService } from '../../services/shared/data.service';
 })
 export class RepertoireComponent implements OnInit{
 
-
+  movieType: string = '';
   weekDays: string[] = ['Pn', 'Wt', 'Śr', 'Czw', 'Pt', 'So', 'Nd'];
   today: string;
   rotatedWeekDays: string[];
@@ -100,12 +100,12 @@ listMoviesWithCityParam(city: string, dayOfWeek: string) {
     dayOfWeek = this.weekDays[this.getAdjustedDayIndex(new Date().getDay())];
   }
 
-  this.showsService.getShowsByCity(city, dayOfWeek, this.pageNumber - 1, this.pageSize).subscribe(
+  this.showsService.getShowsByCity(city, dayOfWeek).subscribe(
     data => {
-      if (data && data.content) {
+      if (data) {
         const groupedShows = new Map<number, { movie: Movie, times: string[], showIds: number[] }>();
 
-        data.content.forEach((show: Show) => {
+        data.forEach((show: Show) => {
           if (!groupedShows.has(show.movie.id)) {
             groupedShows.set(show.movie.id, { movie: show.movie, times: [show.showTime], showIds: [show.id] });
           } else {
@@ -116,16 +116,6 @@ listMoviesWithCityParam(city: string, dayOfWeek: string) {
         this.groupedMovies = Array.from(groupedShows.values());
         console.log(this.groupedMovies);
 
-        if (data.page) {
-          this.pageNumber = data.page.number + 1;
-          this.pageSize = data.page.size;
-          this.totalElement = data.page.totalElements;
-        } else {
-          console.error("Odpowiedź nie zawiera informacji o paginacji: ", data);
-          this.pageNumber = 1;
-          this.pageSize = 10;
-          this.totalElement = 0;
-        }
       } else {
         console.error("Nie znaleziono odpowiedniej struktury danych w odpowiedzi: ", data);
         this.groupedMovies = [];
@@ -138,7 +128,6 @@ listMoviesWithCityParam(city: string, dayOfWeek: string) {
 }
 
 
-//TODO przed wybraniem miejsca uzytkownik musi sie zalogowc
 navigateToLogin() {
   this.router.navigate(['/cinema-room']);
 }

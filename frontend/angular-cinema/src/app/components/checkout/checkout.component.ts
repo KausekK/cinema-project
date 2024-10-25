@@ -40,7 +40,6 @@ export class CheckoutComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
-    // Zainicjalizuj Stripe asynchronicznie
     this.stripe = await loadStripe(environment.stripePublishableKey);
     if (this.stripe) {
       this.setupStripePaymentForm();
@@ -50,7 +49,6 @@ export class CheckoutComponent implements OnInit {
     this.dataService.totalPrice$.subscribe(price => (this.totalPrice = price));
     this.dataService.selectedSeatsNumbers$.subscribe(seats => (this.selectedSeatsNumbers = seats));
     this.dataService.showId$.subscribe(id => (this.showId = id))
-
    
   }
 
@@ -60,14 +58,11 @@ export class CheckoutComponent implements OnInit {
       return;
     }
 
-    // Pobierz elementy Stripe
     const elements = this.stripe.elements();
 
-    // Utwórz element karty
     this.cardElement = elements.create('card', {hidePostalCode: true});
     this.cardElement.mount('#card-element');
 
-    // Obsługa błędów związanych z płatnością
     this.cardElement.on('change', (event: any) => {
       this.displayError = document.getElementById('card-errors');
 
@@ -110,7 +105,6 @@ export class CheckoutComponent implements OnInit {
             } else {
               console.log("Payment successful");
               alert("Payment was successful. Enjoy your movie!");
-              // Możesz dodać tutaj dodatkową logikę, np. zapisanie zamówienia w bazie danych
               this.reserveSeats();
 
             }

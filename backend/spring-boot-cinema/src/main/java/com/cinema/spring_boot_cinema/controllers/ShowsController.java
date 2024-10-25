@@ -7,6 +7,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin("http://localhost:4200")
 @RequestMapping("/api")
@@ -16,8 +18,8 @@ public class ShowsController {
     private ShowsRepository showsRepository;
 
     @GetMapping("/shows")
-    public Page<Shows> getShowsByCityAndDayOfWeek(@RequestParam("cityName") String cityName, @RequestParam("dayOfWeek") String dayOfWeek ,Pageable pageable) {
-        return showsRepository.findAllShowsByCityAndDayOfWeek(cityName, dayOfWeek, pageable);
+    public List<Shows> getShowsByCityAndDayOfWeek(@RequestParam("cityName") String cityName, @RequestParam("dayOfWeek") String dayOfWeek) {
+        return showsRepository.findAllShowsByCityAndDayOfWeek(cityName, dayOfWeek);
     }
 
 

@@ -1,14 +1,31 @@
 <section class="upcoming-releases-section">
   <h2>Nadchodzące Premiery</h2>
   <p>Bądź na bieżąco z najnowszymi premierami w Diamond Cinema.</p>
-  <!-- <div class="upcoming-grid">
+
+  <div class="movies-container">
     <div class="upcoming-movie" *ngFor="let movie of upcomingMovies">
-      <img [src]="movie.posterUrl" [alt]="'Plakat filmu ' + movie.title">
-      <div class="movie-details">
-        <h3>{{ movie.title }}</h3>
-        <p>{{ movie.releaseDate | date: 'longDate' }}</p>
-        <button class="more-btn" (click)="viewMovieDetails(movie.id)">Więcej →</button>
+      <div class="movie-content">
+        <img
+          [src]="movie.posterUrl"
+          [alt]="'Plakat filmu ' + movie.title"
+        />
+        <div class="movie-info">
+          <h3>{{ movie.title }}</h3>
+          <p>Gatunek: {{ movie.type }}</p>
+          <p>Czas trwania: {{ movie.duration }} minut</p>
+          <p>Język: {{ movie.language }}</p>
+          <p>Premiera: {{ movie.releaseDate }}</p>
+        </div>
       </div>
     </div>
-  </div> -->
+  </div>
+
+  <mat-paginator 
+    [length]="totalElements"
+    [pageSize]="pageSize"
+    [pageIndex]="pageNumber - 1"
+    [pageSizeOptions]="[5, 10, 25, 50]"
+    [showFirstLastButtons]="true"
+    (page)="onPageChange($event)">
+  </mat-paginator>
 </section>

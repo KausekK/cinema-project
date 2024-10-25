@@ -48,6 +48,7 @@
 }
 
 .movie-info {
+    flex-grow: 1; 
     text-align: left;
     font-size: 16px;
     color: #d3d3d3;
@@ -60,10 +61,11 @@
 
 .showtimes {
     display: flex;
-    gap: 15px;
-    justify-content: center;
+    gap: 15px; 
+    justify-content: flex-start;
     flex-wrap: wrap;
     margin-top: 15px;
+    min-width: 150px; 
 }
 
 .showtime-btn {
@@ -76,6 +78,7 @@
     cursor: pointer;
     transition: background-color 0.3s;
     font-weight: bold;
+    margin: 5px; 
 }
 
 .showtime-btn:hover {
@@ -87,8 +90,6 @@
     background-color: #cc9200;
 }
 
-
-
 .movies {
     list-style-type: none;
     padding: 0;
@@ -97,7 +98,7 @@
 
 .movies li {
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
     align-items: center;
     background-color: #1a1a1a; 
     margin-bottom: 20px;
