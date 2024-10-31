@@ -34,10 +34,10 @@
 }
 
 .movie-content img {
-  width: 150px; /* Fixed width */
-  height: 225px; /* Fixed height to maintain aspect ratio (for a 1200x675 image, the aspect ratio is 16:9) */
+  width: 150px;
+  height: 225px;  
   border-radius: 10px;
-  object-fit: cover; /* Ensures the image is cropped but not distorted */
+  object-fit: cover; 
 }
 
 .movie-info {

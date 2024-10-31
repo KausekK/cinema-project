@@ -1,0 +1,35 @@
+<button mat-fab color="accent" class="add-admin-button" style="margin-left: 20px;" (click)="openAddAdminDialog()">
+  <mat-icon>person_add</mat-icon>
+</button>
+
+
+<body>
+  <div class="table-container">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Id użytkownika</th>
+          <th scope="col">Imię</th>
+          <th scope="col">Nazwisko</th>
+          <th scope="col">Email</th>
+          <th scope="col">Usuń Administratora</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let admin of adminUsers; let i = index">
+          <th scope="row">{{i + 1}}</th>
+          <td>{{admin.id}}</td>
+          <td>{{admin.firstName}}</td>
+          <td>{{admin.lastName}}</td>
+          <td>{{admin.email}}</td>
+          <td>
+            <button mat-raised-button color="warn" (click)="openRemoveAdminDialog(admin.id)">Zmień rolę</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+
+

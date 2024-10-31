@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>Potwierdzenie nadania roli administratora</h2>
+<mat-dialog-content>
+  <form>
+    <mat-form-field appearance="fill">
+      <mat-label>Adres email</mat-label>
+      <input type="email" matInput [(ngModel)]="selectedEmail" name="email" (input)="filterEmails()">
+    </mat-form-field>
+
+    <div *ngIf="filteredEmails.length > 0">
+      <mat-option *ngFor="let option of filteredEmails" (click)="selectEmail(option[0],option[1])">
+        {{ option[1] }}
+      </mat-option>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cancel()">Anuluj</button>
+  <button mat-raised-button color="primary" (click)="confirm()">Potwierdź</button>
+</mat-dialog-actions>

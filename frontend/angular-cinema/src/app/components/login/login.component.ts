@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthenticationService } from '../../services/authentication.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,9 @@ export class LoginComponent {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
+
   ) {}
 
   ngOnInit(): void {
@@ -39,11 +42,19 @@ export class LoginComponent {
       next: (response) => {
         localStorage.setItem('token', response.token);
         this.router.navigate(['/main']);
+        this.showSnackbar('Użytkownik zalogowany');
       },
       error: (error) => {
         console.error('Błąd podczas logowania', error);
         this.loginError = 'Nieprawidłowy adres e-mail lub hasło.'; 
       }
+    });
+  }
+  showSnackbar(message: string) {
+    this.snackBar.open(message, 'Zamknij', {
+      duration: 3000, 
+      verticalPosition: 'top', 
+      horizontalPosition: 'center' 
     });
   }
 }

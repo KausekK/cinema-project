@@ -59,7 +59,12 @@ public class AuthenticationService {
                 .role(userRole)
                 .build();
 
-        userRepository.save(user);
+        try{
+            userRepository.save(user);
+        }catch (Exception e){
+            throw new IllegalArgumentException("User with this email already exists");
+        }
+
         var jwtToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder().token(jwtToken).build();
     }

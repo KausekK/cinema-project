@@ -24,7 +24,19 @@ import { MatIconModule } from '@angular/material/icon';
 import { TicketSelectionComponent } from './components/ticket-selection/ticket-selection.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { AuthGuard } from './guards/auth-guard.guard';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatListModule } from '@angular/material/list';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { UsersManagementComponent } from './components/admin-dashboard/users-management/users-management.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { RemoveAdminDialogComponent } from './components/admin-dashboard/users-management/remove-admin-dialog/remove-admin-dialog.component';
+import { AddAdminDialogComponent } from './components/admin-dashboard/users-management/add-admin-dialog/add-admin-dialog.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 const routes: Routes = [
   { path: 'main', component: HomePageComponent },
@@ -38,6 +50,8 @@ const routes: Routes = [
   { path: 'cinema-room', component: CinemaRoomComponent, canActivate: [AuthGuard] },
   { path: 'ticket-selection', component: TicketSelectionComponent, canActivate: [AuthGuard]},
   { path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard]},
+  { path: 'users-management', component: UsersManagementComponent},
+  { path: 'admin-dashboard', component: AdminDashboardComponent},
   { path: '', redirectTo: '/main', pathMatch: 'full' },
   { path: '**', redirectTo: '/main', pathMatch: 'full' }
 ];
@@ -56,6 +70,10 @@ const routes: Routes = [
     CinemaRoomComponent,
     TicketSelectionComponent,
     CheckoutComponent,
+    AdminDashboardComponent,
+    UsersManagementComponent,
+    RemoveAdminDialogComponent,
+    AddAdminDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +88,14 @@ const routes: Routes = [
     ReactiveFormsModule,
     MatIconModule,
     YouTubePlayerModule,
-    MatPaginatorModule  
+    MatPaginatorModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatListModule,
+    MatSidenavModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatSnackBarModule  
   ],
   providers: [MoviesService, AuthGuard],
   bootstrap: [AppComponent]

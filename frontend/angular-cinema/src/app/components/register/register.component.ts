@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CinemaValidators } from '../../validators/cinema-validators';
 import { AuthenticationService } from '../../services/authentication.service';
-import { Router, RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +15,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, 
     private authService: AuthenticationService,
-    private router: Router  
+    private router: Router,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -38,8 +40,9 @@ export class RegisterComponent implements OnInit {
     const registerData = this.registerFormGroup.get('register')?.value;
   
     this.authService.register(registerData).subscribe({
-      next: (response) => {
+      next: () => {
         this.router.navigate(['/login']);
+        this.showSnackbar('Użytkownik wylogowany');
       },
       error: (error) => {
         console.error('Błąd podczas rejestracji', error);
@@ -47,7 +50,13 @@ export class RegisterComponent implements OnInit {
     });
   }
   
-  
+  showSnackbar(message: string) {
+    this.snackBar.open(message, 'Zamknij', {
+      duration: 3000, 
+      verticalPosition: 'top', 
+      horizontalPosition: 'center' 
+    });
+  }
 
   get firstName(){
     return this.registerFormGroup.get('register.firstName');
