@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { AuthenticationService } from './services/authentication.service';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,10 @@ export class AppComponent {
   isCinemaRoomPage: boolean = false;
   isTicketSelectionPage: boolean = false;
 
-  constructor(private router: Router, private authService: AuthenticationService) {
+  constructor(private router: Router, 
+    private authService: AuthenticationService,
+    private userService: UserService
+  ) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.isCinemaRoomPage = event.urlAfterRedirects.includes('/cinema-room');
@@ -29,4 +33,8 @@ export class AppComponent {
   isAuthenticated(): boolean {
     return this.authService.isAuthenticated();
   }
+
+  // isAdmin(){
+  //   this.userService.getDynamicAdminsFilter().subscribe()
+  // }
 }

@@ -1,7 +1,4 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Admin } from '../../common/admin';
-import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -12,6 +9,7 @@ export class AdminDashboardComponent implements OnInit{
 
 
   displayUsersManagementComponent: boolean = false;
+  displayShowManagementComponent: boolean = false;
 
   ngOnInit(): void {
   }

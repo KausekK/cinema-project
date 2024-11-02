@@ -3,9 +3,6 @@ package com.cinema.spring_boot_cinema.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.security.Timestamp;
-import java.time.LocalDateTime;
-
 @Data
 @Entity
 @Table(name = "Shows")

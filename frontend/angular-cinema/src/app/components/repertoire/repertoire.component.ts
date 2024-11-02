@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../../common/movie';
 import { MoviesService } from '../../services/movies.service';
-import { CitiesService } from '../../services/cities.service';
+import { CityService } from '../../services/city.service';
 import { ShowsService } from '../../services/shows.service';
 import { Show } from '../../common/show';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { DataService } from '../../services/shared/data.service';
 
@@ -15,28 +14,19 @@ import { DataService } from '../../services/shared/data.service';
 })
 export class RepertoireComponent implements OnInit{
 
-  movieType: string = '';
   weekDays: string[] = ['Pn', 'Wt', 'Śr', 'Czw', 'Pt', 'So', 'Nd'];
   today: string;
   rotatedWeekDays: string[];
   selectedCity: string ='';
 
-  dayName: string = '';
   selectedDay: string= '';
   cities: string[]=[]
   movies: Movie[] = [];
-  shows: Show[]=[];
 
-  showId: number = 0;
-
-  pageNumber: number = 1;
-  pageSize: number = 10;
-  totalElement: number = 0;
   groupedMovies: { movie: Movie; times: string[]; showIds: number[] }[] | undefined;
-  isTrailerOpen: boolean = false;
 
   constructor(private movieService: MoviesService,
-    private citiesService: CitiesService,
+    private cityService: CityService,
     private showsService: ShowsService,
     private router: Router,
     private dataService: DataService
@@ -89,7 +79,7 @@ listMovies(){
 }
 
 listCities(){
-  this.citiesService.getCitiesList().subscribe(
+  this.cityService.getCitiesList().subscribe(
     data=>{
       this.cities = data;
   })

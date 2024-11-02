@@ -14,9 +14,7 @@ export class MoviesService {
   constructor(private httpClient: HttpClient) { }
 
   getMoviesList(): Observable<Movie[]> {
-    return this.httpClient.get<GetResponseMovies>(this.baseUrl).pipe(
-      map(response => response._embedded.movies)
-    );
+    return this.httpClient.get<Movie[]>(this.baseUrl);
 }
 
 getMoviesPostersUrl(): Observable<MoviesPosters[]>{
@@ -29,14 +27,3 @@ getMovieDetails(title: string): Observable<Movie[]>{
 
 }
 
-interface GetResponseMovies{
-  _embedded:{
-    movies: Movie[];
-  },
-  page:{
-    size: number,
-    totalElements: number,
-    totalPages: number,
-    number: number
-  }
-}

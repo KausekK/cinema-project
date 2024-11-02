@@ -36,7 +36,22 @@ import { MatButtonModule } from '@angular/material/button';
 import { RemoveAdminDialogComponent } from './components/admin-dashboard/users-management/remove-admin-dialog/remove-admin-dialog.component';
 import { AddAdminDialogComponent } from './components/admin-dashboard/users-management/add-admin-dialog/add-admin-dialog.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ShowManagementComponent } from './components/admin-dashboard/show-management/show-management.component';
+import { MatDatepickerModule } from '@angular/material/datepicker'; 
+import { MAT_DATE_FORMATS, MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
+import { TimepickerModule } from 'ngx-bootstrap/timepicker';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { MatExpansionModule } from '@angular/material/expansion';
 
+
+export const MY_DATE_FORMATS = {
+  parse: {
+    dateInput: 'DD/MM/YYYY',
+  },
+  display: {
+    dateInput: 'DD/MM/YYYY',
+  },
+};
 
 const routes: Routes = [
   { path: 'main', component: HomePageComponent },
@@ -73,7 +88,8 @@ const routes: Routes = [
     AdminDashboardComponent,
     UsersManagementComponent,
     RemoveAdminDialogComponent,
-    AddAdminDialogComponent
+    AddAdminDialogComponent,
+    ShowManagementComponent
   ],
   imports: [
     BrowserModule,
@@ -95,9 +111,18 @@ const routes: Routes = [
     MatSidenavModule,
     MatDialogModule,
     MatButtonModule,
-    MatSnackBarModule  
+    MatSnackBarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    TimepickerModule.forRoot(),
+    BsDatepickerModule.forRoot(),
+    MatExpansionModule
   ],
-  providers: [MoviesService, AuthGuard],
-  bootstrap: [AppComponent]
+  providers: [
+    MoviesService,
+    AuthGuard,
+    { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS },
+    { provide: MAT_DATE_LOCALE, useValue: 'pl-PL' } 
+  ],  bootstrap: [AppComponent]
 })
 export class AppModule {}

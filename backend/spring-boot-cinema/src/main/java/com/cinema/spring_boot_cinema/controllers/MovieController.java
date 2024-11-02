@@ -3,6 +3,8 @@ package com.cinema.spring_boot_cinema.controllers;
 import com.cinema.spring_boot_cinema.repositories.MovieRepository;
 import com.cinema.spring_boot_cinema.dto.MoviesPosters;
 import com.cinema.spring_boot_cinema.entity.Movie;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,6 +19,12 @@ public class MovieController {
 
     public MovieController(MovieRepository movieRepository) {
         this.movieRepository = movieRepository;
+    }
+
+
+    @GetMapping()
+    public List<Movie> getMovies() {
+        return movieRepository.findAll();
     }
 
     @GetMapping("/posters")

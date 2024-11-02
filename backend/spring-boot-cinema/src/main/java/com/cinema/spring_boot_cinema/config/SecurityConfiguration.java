@@ -26,7 +26,7 @@ public class SecurityConfiguration {
                         .requestMatchers("/api/v1/auth/**").permitAll()
                         .requestMatchers("/api/movies/**").permitAll()
                         .requestMatchers("/api/promotions/**").permitAll()
-                        .requestMatchers("/api/cities/**").permitAll()
+                        .requestMatchers("/api/city/**").permitAll()
                         .requestMatchers("/api/shows/**").permitAll()
                         .requestMatchers("/api/seats/**").permitAll()
                         .requestMatchers("/api/hall/**").permitAll()

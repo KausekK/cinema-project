@@ -15,5 +15,9 @@ export class HallService {
 
   public getHallForSpecificShow(cityName: string, title: string, showTime: string): Observable<Hall[]>{
     return this.httpClient.get<Hall[]>(`${this.baseUrl}?cityName=${cityName}&movieTitle=${title}&showTime=${showTime}`)
-    
-  }}
+  }
+
+  public getHalls():Observable<Hall[]>{
+    return this.httpClient.get<Hall[]>(this.baseUrl + '/all');
+  }
+}

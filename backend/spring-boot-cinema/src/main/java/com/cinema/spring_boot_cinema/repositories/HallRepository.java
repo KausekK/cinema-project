@@ -21,4 +21,7 @@ public interface HallRepository extends JpaRepository<Hall, Long> {
     List<HallForSpecificShow> findHallByCityMovieAndShowTime(@Param("cityName") String cityName,
                                                              @Param("title") String title,
                                                              @Param("showTime") String showTime);
+
+    @Override
+    List<Hall> findAll();
 }

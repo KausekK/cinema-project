@@ -13,7 +13,7 @@ import java.util.List;
 @CrossOrigin("http://localhost:4200")
 public interface MovieRepository extends JpaRepository<Movie, Long> {
 
-    Page<Movie> findAll(Pageable pageable);
+    List<Movie> findAll();
 
     @Query("SELECT new com.cinema.spring_boot_cinema.dto.MoviesPosters(m.id, m.posterUrl, m.title) FROM Movie m")
     List<MoviesPosters> getAllPosters();

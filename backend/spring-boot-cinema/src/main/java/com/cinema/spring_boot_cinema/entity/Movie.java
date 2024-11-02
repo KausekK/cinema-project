@@ -13,10 +13,10 @@ public class Movie {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "title", nullable = false, length = 255)
+    @Column(name = "title", nullable = false)
     private String title;
 
-    @Column(name = "type", nullable = false, length = 255)
+    @Column(name = "type", nullable = false)
     private String type;
 
     @Column(name = "duration", nullable = false)

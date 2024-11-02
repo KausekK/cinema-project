@@ -1,0 +1,111 @@
+<div class="container mt-4">
+    <mat-form-field appearance="fill" class="w-100 mb-3">
+      <mat-label>Wybierz miasto</mat-label>
+      <mat-select (selectionChange)="selectCity($event.value)">
+        <mat-option *ngFor="let city of cities" [value]="city">
+          {{ city }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div *ngIf="!selectedCity && searchClicked" class="text-danger">
+      Wybierz miasto
+    </div>
+  
+    <mat-form-field appearance="fill" class="w-100 mb-3">
+        <mat-label>Wybierz film</mat-label>
+        <mat-select (selectionChange)="selectMovie($event.value)">
+          <mat-option *ngFor="let movie of movies" [value]="movie">
+            {{ movie.title }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    <div *ngIf="!selectedMovieTitle && searchClicked" class="text-danger">
+      Wybierz film
+    </div>
+  
+    <mat-form-field appearance="fill" class="w-100 mb-3">
+      <mat-label>Wybierz datę</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        (dateChange)="onDateChange($event.value)"
+        readonly
+      />
+      <mat-hint>DD/MM/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <div *ngIf="!selectedDate && searchClicked" class="text-danger">
+      Wybierz datę
+    </div>
+  
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="onSearch(); getShowsWithFilters()"
+      [disabled]="!selectedCity || !selectedMovieTitle || !selectedDate"
+    >
+      Szukaj
+    </button>
+  
+    <div *ngIf="searchClicked && shows.length > 0; else noShow" class="mt-3">
+      <div *ngFor="let show of shows" class="d-flex align-items-center mb-2">
+        <span>
+          {{ show.movie.title }} {{ show.day_of_week }} {{ show.showTime }}
+          {{ show.hallNumber }}
+        </span>
+        <button
+          mat-raised-button
+          color="warn"
+          class="ms-3"
+          (click)="deleteShow(show.id)"
+        >
+          Usuń
+        </button>
+      </div>
+    </div>
+  
+    <ng-template #noShow>
+        <div *ngIf="searchClicked" class="mt-3">
+          <h5>Nie ma seansu spełniającego podane warunki, czy chcesz go dodać?</h5>
+      
+          <mat-expansion-panel *ngIf="addShow" expanded>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Dodaj Nowy Seans
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+      
+            <div class="form-group mt-2 mb-3">
+              <label for="timePicker" class="form-label">Wybierz godzinę</label>
+              <timepicker
+                [(ngModel)]="selectedTime"
+                (ngModelChange)="onTimeChange($event)"
+                [showMeridian]="false"
+                id="timePicker"
+                class="d-block"
+              ></timepicker>
+            </div>
+      
+            <mat-form-field appearance="fill" class="w-100 mb-3">
+              <mat-label>Wybierz salę</mat-label>
+              <mat-select (selectionChange)="selectHall($event.value)">
+                <mat-option *ngFor="let hall of halls" [value]="hall.hallNumber">
+                  {{ hall.hallNumber }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+      
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="chooseCinemaRoomForShow()"
+              [disabled]="!selectedTime || !selectedHall"
+            >
+              Dodaj seans
+            </button>
+          </mat-expansion-panel>
+        </div>
+      </ng-template>
+  </div>
+  

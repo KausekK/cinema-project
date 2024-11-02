@@ -18,6 +18,7 @@
                     <td><a routerLink="/pricing" routerLinkActive="active-link">Cennik Biletów</a></td>
                     <td><a routerLink="/promotions" routerLinkActive="active-link">Promocje</a></td>
                     <td><a routerLink="/contact" routerLinkActive="active-link">Kontakt</a></td>
+                    <td *ngIf="isAuthenticated()"><a routerLink="/admin-dashboard" routerLinkActive="active-link">Panel Administracyjny</a></td>
                 </tr>
             </table>
             <div class="auth-links">

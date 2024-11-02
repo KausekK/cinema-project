@@ -2,7 +2,6 @@
     <div class="section-content section-content-p30">
       <div class="container-fluid">
         <form *ngIf="checkoutFormGroup" [formGroup]="checkoutFormGroup" (ngSubmit)="onSubmit()">
-            <!-- customer form group -->
           <div formGroupName="customer" class="form-area">
             <h3>Dane klienta</h3>
   
@@ -40,22 +39,18 @@
             </div>
           </div>
   
-          <!-- Stripe Elements Credit Card Section -->
           <div class="form-area">
             <h3>Karta Kredytowa</h3>
             <div id="card-element">
-              <!-- Stripe element will be inserted here -->
             </div>
             <!-- <div id="card-errors" role="alert" class="alert alert-danger mt-1"></div> -->
           </div>
   
-          <!-- Order details -->
           <div class="form-area">
             <h3>Zamówienie</h3>
             <p>Do zapłaty: {{ totalPrice | currency: 'PLN' }}</p>
           </div>
   
-          <!-- submit button-->
           <div class="text-center">
             <button type="submit" class="btn btn-info" [disabled]="checkoutFormGroup.invalid" [disabled]="isDisabled">Zapłać</button>
           </div>
