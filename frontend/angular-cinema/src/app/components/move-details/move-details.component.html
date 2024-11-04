@@ -1,4 +1,3 @@
-
 <section class="movie-details-section">
     <h2>{{ movie[0]?.title }}</h2>
     <div class="details-container" *ngFor="let detail of movie">
@@ -6,13 +5,13 @@
             <img [src]="detail.posterUrl" [alt]="'Plakat filmu ' + detail.title">
         </div>
         <div class="detail-item">
-            <p><strong>Opis:</strong> {{ detail.description }}</p>
-            <p><strong>Gatunek Filmowy:</strong> {{detail.type}}</p>
-            <p><strong>Reżyser:</strong> {{ detail.director }}</p>
-            <p><strong>Czas trwania:</strong> {{ detail.duration }} minut</p>
-            <p><strong>Język:</strong> {{ detail.language }}</p>
-            <p><strong>Format:</strong> {{ detail.format }}</p>
-            <p><strong>Ograniczenia wiekowe:</strong> {{ detail.ageRestriction }}+</p>
+            <p><strong>{{ 'DESCRIPTION' | translate }}:</strong> {{ detail.description }}</p>
+            <p><strong>{{ 'MOVIE_GENRE' | translate }}:</strong> {{ detail.type }}</p>
+            <p><strong>{{ 'DIRECTOR' | translate }}:</strong> {{ detail.director }}</p>
+            <p><strong>{{ 'DURATION' | translate }}:</strong> {{ detail.duration }} {{ 'MINUTES' | translate }}</p>
+            <p><strong>{{ 'MOVIE_LANGUAGE' | translate }}:</strong> {{ detail.language }}</p>
+            <p><strong>{{ 'FORMAT' | translate }}:</strong> {{ detail.format }}</p>
+            <p><strong>{{ 'AGE_RESTRICTION' | translate }}:</strong> {{ detail.ageRestriction }}+</p>
         </div>
     </div>
 </section>

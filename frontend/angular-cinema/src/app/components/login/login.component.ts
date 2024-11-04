@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthenticationService } from '../../services/authentication.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { UserService } from '../../services/user.service';
+import { Admin } from '../../common/admin';
 
 @Component({
   selector: 'app-login',
@@ -12,12 +14,14 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class LoginComponent {
   loginFormGroup!: FormGroup;
   loginError: string = ''; 
+  admins: Admin [] = [] 
 
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthenticationService,
     private router: Router,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar, 
+    private userService: UserService
 
   ) {}
 
@@ -49,7 +53,19 @@ export class LoginComponent {
         this.loginError = 'Nieprawidłowy adres e-mail lub hasło.'; 
       }
     });
+
+    this.userService.getAdmins().subscribe(
+      data=>{
+        this.admins = data;
+        console.log(this.admins)
+        console.log(loginData)
+        const role = this.admins.find(role => role.email.toLowerCase() === loginData.email.toLowerCase());
+        console.log(role)
+         role ? localStorage.setItem("role","Admin") : localStorage.setItem("role","User");
+      }
+    )
   }
+
   showSnackbar(message: string) {
     this.snackBar.open(message, 'Zamknij', {
       duration: 3000, 

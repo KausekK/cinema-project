@@ -3,34 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cinema City - Strona główna</title>
+    <title>Diamond City - Strona główna</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
     <div id="content">
         <nav *ngIf="!isCinemaRoomPage && !isTicketSelectionPage">
-            <img src="assets/logo/diamond-cinema.webp" alt="diamond-cinema" [routerLink]="['/main']" style="cursor: pointer;">
+            <img src="assets/logo/image.png" alt="diamond-cinema" [routerLink]="['/main']" style="cursor: pointer;">
+
             <table class="nav-table">
                 <tr>
-                    <td><a routerLink="/repertoire" routerLinkActive="active-link">Repertuar</a></td>
-                    <td><a routerLink="/upcoming" routerLinkActive="active-link">Najbliższe Premiery</a></td>
-                    <td><a routerLink="/pricing" routerLinkActive="active-link">Cennik Biletów</a></td>
-                    <td><a routerLink="/promotions" routerLinkActive="active-link">Promocje</a></td>
-                    <td><a routerLink="/contact" routerLinkActive="active-link">Kontakt</a></td>
-                    <td *ngIf="isAuthenticated()"><a routerLink="/admin-dashboard" routerLinkActive="active-link">Panel Administracyjny</a></td>
+                    <td><a routerLink="/repertoire" routerLinkActive="active-link">{{ 'NAV_REPERTOIRE' | translate }}</a></td>
+                    <td><a routerLink="/upcoming" routerLinkActive="active-link">{{ 'NAV_UPCOMING_PREMIERES' | translate }}</a></td>
+                    <td><a routerLink="/pricing" routerLinkActive="active-link">{{ 'NAV_TICKET_PRICING' | translate }}</a></td>
+                    <td><a routerLink="/promotions" routerLinkActive="active-link">{{ 'NAV_PROMOTIONS' | translate }}</a></td>
+                    <td><a routerLink="/contact" routerLinkActive="active-link">{{ 'NAV_CONTACT' | translate }}</a></td>
+                    <td *ngIf="isAuthenticated() && isAdmin()"><a routerLink="/admin-dashboard" routerLinkActive="active-link">{{ 'NAV_ADMIN_PANEL' | translate }}</a></td>
                 </tr>
             </table>
             <div class="auth-links">
+                <select (change)="changeLanguage($event)">
+                    <option value="pl">PL</option>
+                    <option value="en">EN</option>
+                  </select>
                 <ng-container *ngIf="!isAuthenticated()">
-                  <p><a routerLink="/login"><i class="bi bi-person"></i> Logowanie</a></p>
-                  <p><a routerLink="/register"><i class="bi bi-person-plus"></i> Rejestracja</a></p>
+                  <p><a routerLink="/login"><i class="bi bi-person"></i> {{ 'AUTH_LOGIN' | translate }}</a></p>
+                  <p><a routerLink="/register"><i class="bi bi-person-plus"></i> {{ 'AUTH_REGISTER' | translate }}</a></p>
                 </ng-container>
               
                 <ng-container *ngIf="isAuthenticated()">
-                  <p><a (click)="logout()"><i class="bi bi-box-arrow-right"></i> Wyloguj się</a></p>
+                  <p><a (click)="logout()"><i class="bi bi-box-arrow-right"></i> {{ 'AUTH_LOGOUT' | translate }}</a></p>
                 </ng-container>
               </div>
+              
         </nav>
 
         <router-outlet></router-outlet>

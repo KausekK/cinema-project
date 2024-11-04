@@ -1,8 +1,8 @@
 <section class="repertoire-section">
-  <h2>REPERTUAR</h2>
+  <h2>{{ 'REPERTOIRE_TITLE' | translate }}</h2>
 
   <mat-form-field *ngIf="cities && cities.length > 0" appearance="outline">
-    <mat-label style="color: white">Wybierz kino</mat-label>
+    <mat-label style="color: white">{{ 'SELECT_CINEMA_LABEL' | translate }}</mat-label>
     <mat-select
       style="color: white"
       [(value)]="selectedCity"
@@ -35,10 +35,10 @@
         <div class="movie-info">
           <p class="movie-title">{{ grouped.movie.title }}</p>
           <div class="movie-info">
-            <p><strong>Gatunek:</strong> {{ grouped.movie.type }}</p>
-            <p><strong>Czas trwania:</strong> {{ grouped.movie.duration }} min</p>
-            <p><strong>Język:</strong> {{ grouped.movie.language }}</p>
-            <p><strong>Format:</strong> {{ grouped.movie.format }}</p>
+            <p><strong>{{ 'GENRE' | translate }}:</strong> {{ grouped.movie.type }}</p>
+            <p><strong>{{ 'DURATION' | translate }}:</strong> {{ grouped.movie.duration }} {{ 'MINUTES' | translate }}</p>
+            <p><strong>{{ 'LANGUAGE' | translate }}:</strong> {{ grouped.movie.language }}</p>
+            <p><strong>{{ 'FORMAT' | translate }}:</strong> {{ grouped.movie.format }}</p>
           </div>
           <div class="showtimes">
             <button

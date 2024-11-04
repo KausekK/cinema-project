@@ -1,6 +1,6 @@
 <section class="upcoming-releases-section">
-  <h2>Nadchodzące Premiery</h2>
-  <p>Bądź na bieżąco z najnowszymi premierami w Diamond Cinema.</p>
+  <h2>{{ 'UPCOMING_RELEASES_TITLE' | translate }}</h2>
+  <p>{{ 'UPCOMING_RELEASES_DESCRIPTION' | translate }}</p>
 
   <div class="movies-container">
     <div class="upcoming-movie" *ngFor="let movie of upcomingMovies">
@@ -11,10 +11,10 @@
         />
         <div class="movie-info">
           <h3>{{ movie.title }}</h3>
-          <p>Gatunek: {{ movie.type }}</p>
-          <p>Czas trwania: {{ movie.duration }} minut</p>
-          <p>Język: {{ movie.language }}</p>
-          <p>Premiera: {{ movie.releaseDate }}</p>
+          <p>{{ 'MOVIE_GENRE' | translate }}: {{ movie.type }}</p>
+          <p>{{ 'MOVIE_DURATION' | translate }}: {{ movie.duration }} {{ 'MINUTES' | translate }}</p>
+          <p>{{ 'MOVIE_LANGUAGE' | translate }}: {{ movie.language }}</p>
+          <p>{{ 'MOVIE_RELEASE_DATE' | translate }}: {{ movie.releaseDate }}</p>
         </div>
       </div>
     </div>

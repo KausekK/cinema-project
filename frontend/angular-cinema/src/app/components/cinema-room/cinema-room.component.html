@@ -3,15 +3,15 @@
     <tr>
       <td class="step" [ngClass]="{ active: currentStep === 1 }">
         <span class="step-number">1</span>
-        <span class="step-label">Wybór miejsc</span>
+        <span class="step-label">{{ 'STEP_SELECTION' | translate }}</span>
       </td>
       <td class="step" [ngClass]="{ active: currentStep === 2 }">
         <span class="step-number">2</span>
-        <span class="step-label">Wybór biletów</span>
+        <span class="step-label">{{ 'STEP_TICKETS' | translate }}</span>
       </td>
       <td class="step" [ngClass]="{ active: currentStep === 3 }">
         <span class="step-number">3</span>
-        <span class="step-label">Zamówienie</span>
+        <span class="step-label">{{ 'STEP_ORDER' | translate }}</span>
       </td>
     </tr>
   </table>
@@ -22,14 +22,13 @@
   <div class="movie-info-text">
     <span class="movie-title">{{movieTitle}}</span>
     <div class="movie-info-details">
-      <span>{{cityName}} | {{showTime | date : 'd.MM.YYYY'}} | {{showTime | date : 'HH:mm'}} | Sala {{hallNumber}} | {{selectedDay}}</span>
+      <span>{{cityName}} | {{showTime | date : 'd.MM.YYYY'}} | {{showTime | date : 'HH:mm'}} | {{ 'SCREEN_LABEL' | translate }} {{hallNumber}} | {{selectedDay}}</span>
     </div>
   </div>
 </div>
 
-
 <div class="cinema-room">
-  <div class="screen">EKRAN</div>
+  <div class="screen">{{ 'SCREEN_LABEL' | translate }}</div>
   <div *ngFor="let rowIndex of getTotalRows()" class="row">
     <div class="row-label">{{ rowIndex + 1 }}</div>
     <div class="seat-wrapper">
@@ -46,8 +45,7 @@
 
 <div class="buy-tickets-button-wrapper" *ngIf="countSeatsReservation.length > 0">
   <button (click)="buyTickets()" class="buy-tickets-button">
-    <div class="main-text">KUP BILETY</div>
-    <div class="sub-text">Liczba wybranych miejsc: {{ countSeatsReservation.length }}</div>
+    <div class="main-text">{{ 'BUY_TICKETS' | translate }}</div>
+    <div class="sub-text">{{ 'SELECTED_SEATS_COUNT' | translate }}: {{ countSeatsReservation.length }}</div>
   </button>
 </div>
-

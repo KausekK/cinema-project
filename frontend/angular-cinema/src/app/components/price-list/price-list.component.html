@@ -1,62 +1,53 @@
 <section class="ticket-pricing-section">
-    <h2>CENNIK</h2>
-    <p>Kasy kina otwierane są codziennie 30 minut przed rozpoczęciem pierwszego seansu. Sprawdź dzisiejszy repertuar, by dowiedzieć się od której jesteśmy otwarci. Ceny biletów podane są w PLN.</p>
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Rodzaj Biletu</th>
-          <th scope="col">Filmowy poniedziałek</th>
-          <th scope="col">Wtorek</th>
-          <th scope="col">Filmowa Środa</th>
-          <th scope="col">Czwartek</th>
-          <th scope="col">Piątek - Niedziela oraz Święta</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">normalny</th>
-          <td>16</td>
-          <td>24</td>
-          <td>19</td>
-          <td>26</td>
-          <td>30</td>
-        </tr>
-        <tr>
-            <th scope="row">ulgowy*</th>
-            <td>16</td>
-            <td>24</td>
-            <td>19</td>
-            <td>24</td>
-            <td>28</td>
-        </tr>
-        <tr>
-          <th scope="row">Senior**</th>
-          <td>16</td>
-          <td>16</td>
-          <td>16</td>
-          <td>16</td>
-          <td>26</td>
-        </tr>
-      </tbody>
-    </table>
-  
-    <p>* Bilety ulgowe przysługują:
-      – uczniom – legitymacja ucznia<br>
-      – dzieciom do lat 12 (dzieci do 1 roku – bezpłatnie)<br>
-      – studentom – legitymacja studencka<br>
-      – doktorantom – legitymacja doktoranta<br>
-      – rencistom – legitymacja rencisty<br>
-      – nauczycielom – legitymacja nauczyciela
-    </p>
-    
-    
-    <p>** W ramach seansów dla Seniorów, bilety na wszystkie seanse (od poniedziałku do czwartku przez cały dzień). Bilet przysługuje osobom posiadającym legitymację emeryta. Promocja nie obowiązuje na festiwale i wydarzenia specjalne. Od piątku do niedzieli bilety są dostępne w cenie 26 zł.</p>
-  
-    <p>Promocje:</p>
-    <ul>
-      <li>FILMOWE PONIEDZIAŁKI – 16 ZŁ na wszystkie seanse z wyłączeniem wydarzeń specjalnych i festiwali.</li>
-      <li>FILMOWE ŚRODY – 19 ZŁ na wszystkie seanse z wyłączeniem wydarzeń specjalnych i festiwali.</li>
-    </ul>
-  
-    <p>Zwrot biletów jest możliwy najpóźniej 30 min przed rozpoczęciem seansu. Zwroty biletów zakupionych przez internet są możliwe tylko w kasach kina.</p>
-  </section>
+  <h2>{{ 'TICKET_PRICING_TITLE' | translate }}</h2>
+  <p>{{ 'TICKET_PRICING_INFO' | translate }}</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">{{ 'TICKET_TYPE' | translate }}</th>
+        <th scope="col">{{ 'MONDAY' | translate }}</th>
+        <th scope="col">{{ 'TUESDAY' | translate }}</th>
+        <th scope="col">{{ 'WEDNESDAY' | translate }}</th>
+        <th scope="col">{{ 'THURSDAY' | translate }}</th>
+        <th scope="col">{{ 'FRIDAY_SUNDAY' | translate }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">{{ 'REGULAR' | translate }}</th>
+        <td>16</td>
+        <td>24</td>
+        <td>19</td>
+        <td>26</td>
+        <td>30</td>
+      </tr>
+      <tr>
+        <th scope="row">{{ 'DISCOUNTED' | translate }}</th>
+        <td>16</td>
+        <td>24</td>
+        <td>19</td>
+        <td>24</td>
+        <td>28</td>
+      </tr>
+      <tr>
+        <th scope="row">{{ 'SENIOR' | translate }}</th>
+        <td>16</td>
+        <td>16</td>
+        <td>16</td>
+        <td>16</td>
+        <td>26</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>{{ 'DISCOUNT_INFO' | translate }}</p>
+  <p>{{ 'SENIOR_INFO' | translate }}</p>
+
+  <p>{{ 'PROMOTIONS_TITLE' | translate }}</p>
+  <ul>
+    <li>{{ 'PROMOTION_MONDAY' | translate }}</li>
+    <li>{{ 'PROMOTION_WEDNESDAY' | translate }}</li>
+  </ul>
+
+  <p>{{ 'REFUND_POLICY' | translate }}</p>
+</section>

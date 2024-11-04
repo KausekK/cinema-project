@@ -1,12 +1,12 @@
 <section class="promotions-section">
-  <h2>Wybierz idealną promocję dla Ciebie</h2>
-  <p>Ciesz się kinem w atrakcyjnej cenie</p>
+  <h2>{{ 'PROMOTIONS_TITLE' | translate }}</h2>
+  <p>{{ 'PROMOTIONS_SUBTITLE' | translate }}</p>
   <div class="promotions-grid">
     <div class="promotion" *ngFor="let promo of promotions" (click)="selectPromotion(promo.id)">
       <h3>{{ promo.title }}</h3>
       <p>{{ promo.description }}</p>
       <p class="price">{{ promo.price }} zł</p>
-      <button class="more-btn">Więcej →</button>
+      <button class="more-btn">{{ 'MORE_BUTTON' | translate }}</button>
       <img [src]="promo.imageUrl" alt="{{ promo.title }}">
     </div>
   </div>

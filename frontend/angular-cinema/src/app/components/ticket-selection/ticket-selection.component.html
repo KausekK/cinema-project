@@ -3,15 +3,15 @@
     <tr>
       <td class="step" [ngClass]="{ active: currentStep === 1 }">
         <span class="step-number">1</span>
-        <span class="step-label">Wybór miejsc</span>
+        <span class="step-label">{{ 'STEP_SELECTION' | translate }}</span>
       </td>
       <td class="step" [ngClass]="{ active: currentStep === 2 }">
         <span class="step-number">2</span>
-        <span class="step-label">Wybór biletów</span>
+        <span class="step-label">{{ 'STEP_TICKETS' | translate }}</span>
       </td>
       <td class="step" [ngClass]="{ active: currentStep === 3 }">
         <span class="step-number">3</span>
-        <span class="step-label">Zamówienie</span>
+        <span class="step-label">{{ 'STEP_ORDER' | translate }}</span>
       </td>
     </tr>
   </table>
@@ -36,7 +36,7 @@
 </div>
 
 <div class="ticket-selection-container">
-  <h1>WYBIERZ BILETY</h1>
+  <h1>{{ 'CHOOSE_TICKETS' | translate }}</h1>
 
   <div class="ticket-info" *ngIf="ticketPrices.length > 0; else loading">
     <ul class="ticket-details">
@@ -44,7 +44,7 @@
         <li *ngFor="let seat of entry.value">
           Rząd: {{ entry.key }}, Miejsce: {{ seat }}
           <mat-form-field appearance="fill" class="custom-width">
-            <mat-label>Rodzaj biletu</mat-label>
+            <mat-label>{{ 'TICKET_TYPE_LABEL' | translate }}</mat-label>
             <mat-select
               class="small-select"
               [(ngModel)]="ticketTypeSelection[entry.key + '-' + seat]"
@@ -58,7 +58,7 @@
               </mat-option>
             </mat-select>
             <mat-error *ngIf="!ticketTypeSelection[entry.key + '-' + seat]">
-              Wybierz rodzaj biletu
+              {{ 'SELECT_TICKET_TYPE_ERROR' | translate }}
             </mat-error>
           </mat-form-field>
         </li>
@@ -66,19 +66,19 @@
     </ul>
   </div>
   <ng-template #loading>
-    <p>Ładowanie cen biletów...</p>
+    <p>{{ 'LOADING_TICKET_PRICES' | translate }}</p>
   </ng-template>
 
   <hr />
 
   <div class="price-summary">
-    <p>Liczba biletów: <strong>{{ getTotalTickets() }}</strong></p>
+    <p>{{ 'TOTAL_TICKETS' | translate }}: <strong>{{ getTotalTickets() }}</strong></p>
     <p>
-      Razem:
+      {{ 'TOTAL_PRICE' | translate }}:
       <strong>{{ calculateTotalPrice() | number: '1.2-2' }} zł</strong>
     </p>
     <p>
-      w tym opłata serwisowa:
+      {{ 'SERVICE_FEE' | translate }}:
       <strong>{{ serviceFee | number: '1.2-2' }} zł</strong>
     </p>
   </div>
@@ -87,10 +87,11 @@
     <button
       class="next-btn"
       [disabled]="!allTicketTypesSelected()"
-    
-    routerLink="/checkout">
-      DALEJ<br /><span>{{ getTotalTickets() }} bilet(y) - {{ calculateTotalPrice() | number: '1.2-2' }} zł</span>
+      routerLink="/checkout"
+    >
+      {{ 'NEXT_BUTTON' | translate }}<br />
+      <span>{{ getTotalTickets() }} {{ 'TICKETS_LABEL' | translate }} - {{ calculateTotalPrice() | number: '1.2-2' }} zł</span>
     </button>
-    <button class="back-btn">WRÓĆ</button>
+    <button class="back-btn">{{ 'BACK_BUTTON' | translate }}</button>
   </div>
 </div>
