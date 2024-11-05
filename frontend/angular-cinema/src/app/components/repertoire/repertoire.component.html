@@ -23,8 +23,9 @@
         {{ day }}
       </span>
     </div> 
+    
 
-    <p class="date">{{ today }}</p>
+    <p *ngIf="selectedDay">Wybrana data: {{ getNextDateForDay(selectedDay) }}</p>
 
     <ul class="movies">
       <li *ngFor="let grouped of groupedMovies">
