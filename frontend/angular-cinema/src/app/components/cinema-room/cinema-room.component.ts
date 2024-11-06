@@ -151,8 +151,9 @@ export class CinemaRoomComponent implements OnInit{
   
   
   getSeatFromSeatIndex(seatIndex: number): number {
-    return seatIndex % 10 === 0 ? 10 : seatIndex % 10 + 1; 
+    return (seatIndex % 10) + 1; 
   }
+  
 
   buyTickets(): void {
     this.router.navigate(['/ticket-selection'], 

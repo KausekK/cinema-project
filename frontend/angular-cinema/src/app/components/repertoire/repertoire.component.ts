@@ -89,6 +89,7 @@ export class RepertoireComponent implements OnInit {
       month: '2-digit',
       year: 'numeric'
     });
+  
   }
   
 

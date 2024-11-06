@@ -13,28 +13,60 @@
     object-fit: cover; 
 }
 
-.arrow-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    border: none;
-    color: #d4af37;
-    font-size: 2em;
+.arrow {
+    position: absolute; 
+    width: 30px;
+    height: 30px;
     cursor: pointer;
-    padding: 10px;
+    transition: 0.5s;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    font-size: 2em; 
+    z-index: 10;
+    border-radius: 50%;
+    background: none;
+    border: none;
 }
 
 .left-arrow {
     left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.left-arrow:before {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-top: solid 2px white;
+    border-left: solid 2px white;
+    top: 50%;
+    left: 2px;
+    transform-origin: 0% 0%;
+    transform: rotateZ(-45deg);
 }
 
 .right-arrow {
     right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-.arrow-btn:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+
+.right-arrow:before {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-top: solid 2px white;
+    border-right: solid 2px white;
+    top: 50%;
+    right: 2px;
+    transform-origin: 100% 0%;
+    transform: rotateZ(45deg);
 }
 
 .movies-container {

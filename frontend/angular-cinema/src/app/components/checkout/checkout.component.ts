@@ -7,6 +7,7 @@ import { CinemaValidators } from '../../validators/cinema-validators';
 import { loadStripe, Stripe } from '@stripe/stripe-js';
 import { DataService } from '../../services/shared/data.service';
 import { SeatsService } from '../../services/seats.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkout',
@@ -28,7 +29,8 @@ export class CheckoutComponent implements OnInit {
   constructor(private checkoutService: CheckoutService, 
     private formBuilder: FormBuilder,
     private dataService: DataService,
-    private seatsService: SeatsService
+    private seatsService: SeatsService,
+    private router: Router
   ) {
     this.checkoutFormGroup = this.formBuilder.group({
       customer: this.formBuilder.group({
@@ -106,7 +108,7 @@ export class CheckoutComponent implements OnInit {
               console.log("Payment successful");
               alert("Payment was successful. Enjoy your movie!");
               this.reserveSeats();
-
+              this.router.navigate(['/main']); 
             }
           });
       },

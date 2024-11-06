@@ -1,15 +1,15 @@
 <div class="video-background">
-    <button class="arrow-btn left-arrow" (click)="previousTrailer()">⟵</button>
+    <button class="arrow left-arrow" (click)="previousTrailer()">⟵</button>
 
     <iframe id="yt-background-video" [src]="getSafeTrailerUrl()" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     
-    <button class="arrow-btn right-arrow" (click)="nextTrailer()">⟶</button>
+    <button class="arrow right-arrow" (click)="nextTrailer()">⟶</button>
 </div>
 
 <p class="section-title">{{ 'NOW_SHOWING' | translate }}</p>
 <div class="movies-container">
     <div class="movie-item" *ngFor="let movie of movies">
         <img [src]="movie.posterUrl" [alt]="'Plakat filmu ' + movie.title" [routerLink]="['/movie-details', movie.title]" routerLinkActive="true" style="cursor: pointer;">
-        <p class="movie-title">{{ movie.title }}</p>
+        <p class="movie-title">{{ movie.title | translate}}</p>
     </div>
 </div>

@@ -10,8 +10,8 @@
           [alt]="'Plakat filmu ' + movie.title"
         />
         <div class="movie-info">
-          <h3>{{ movie.title }}</h3>
-          <p>{{ 'MOVIE_GENRE' | translate }}: {{ movie.type }}</p>
+          <h3>{{ movie.title | translate}}</h3>
+          <p>{{ 'MOVIE_GENRE' | translate }}: {{ movie.type | translate}}</p>
           <p>{{ 'MOVIE_DURATION' | translate }}: {{ movie.duration }} {{ 'MINUTES' | translate }}</p>
           <p>{{ 'MOVIE_LANGUAGE' | translate }}: {{ movie.language }}</p>
           <p>{{ 'MOVIE_RELEASE_DATE' | translate }}: {{ movie.releaseDate }}</p>

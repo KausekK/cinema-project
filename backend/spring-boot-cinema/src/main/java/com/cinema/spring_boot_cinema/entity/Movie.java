@@ -42,4 +42,7 @@ public class Movie {
 
     @Column(name = "age_restriction")
     private Integer ageRestriction;
+
+    @Column(name = "description_en")
+    private String descriptionEn;
 }

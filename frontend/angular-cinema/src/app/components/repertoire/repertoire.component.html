@@ -8,7 +8,7 @@
       [(value)]="selectedCity"
       (selectionChange)="listMoviesWithCityParam(selectedCity, selectedDay)"
     >
-      <mat-option *ngFor="let city of cities" [value]="city">{{ city }}</mat-option>
+      <mat-option *ngFor="let city of cities" [value]="city">{{ city | translate}}</mat-option>
     </mat-select>
   </mat-form-field>
 
@@ -20,12 +20,12 @@
         [ngClass]="{ 'selected-day': day === selectedDay, today: i === 0 }"
         (click)="selectDay(day)"
       >
-        {{ day }}
+        {{ day | translate}}
       </span>
     </div> 
     
 
-    <p *ngIf="selectedDay">Wybrana data: {{ getNextDateForDay(selectedDay) }}</p>
+    <p *ngIf="selectedDay">{{ getNextDateForDay(selectedDay) }}</p>
 
     <ul class="movies">
       <li *ngFor="let grouped of groupedMovies">
@@ -34,9 +34,9 @@
           [alt]="'Plakat filmu ' + grouped.movie.title"
         />
         <div class="movie-info">
-          <p class="movie-title">{{ grouped.movie.title }}</p>
+          <p class="movie-title">{{ grouped.movie.title | translate }}</p>
           <div class="movie-info">
-            <p><strong>{{ 'GENRE' | translate }}:</strong> {{ grouped.movie.type }}</p>
+            <p><strong>{{ 'GENRE' | translate }}:</strong> {{ grouped.movie.type | translate}}</p>
             <p><strong>{{ 'DURATION' | translate }}:</strong> {{ grouped.movie.duration }} {{ 'MINUTES' | translate }}</p>
             <p><strong>{{ 'LANGUAGE' | translate }}:</strong> {{ grouped.movie.language }}</p>
             <p><strong>{{ 'FORMAT' | translate }}:</strong> {{ grouped.movie.format }}</p>

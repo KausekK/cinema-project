@@ -18,7 +18,7 @@
                     <td><a routerLink="/upcoming" routerLinkActive="active-link">{{ 'NAV_UPCOMING_PREMIERES' | translate }}</a></td>
                     <td><a routerLink="/pricing" routerLinkActive="active-link">{{ 'NAV_TICKET_PRICING' | translate }}</a></td>
                     <td><a routerLink="/promotions" routerLinkActive="active-link">{{ 'NAV_PROMOTIONS' | translate }}</a></td>
-                    <td><a routerLink="/contact" routerLinkActive="active-link">{{ 'NAV_CONTACT' | translate }}</a></td>
+                    <!-- <td><a routerLink="/contact" routerLinkActive="active-link">{{ 'NAV_CONTACT' | translate }}</a></td> -->
                     <td *ngIf="isAuthenticated() && isAdmin()"><a routerLink="/admin-dashboard" routerLinkActive="active-link">{{ 'NAV_ADMIN_PANEL' | translate }}</a></td>
                 </tr>
             </table>

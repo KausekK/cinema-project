@@ -97,6 +97,83 @@
   "CREDIT_CARD": "Karta Kredytowa",
   "ORDER": "Zamówienie",
   "TOTAL_AMOUNT": "Do zapłaty",
-  "PAY": "Zapłać"
+  "PAY": "Zapłać",
 
+
+  "Akcja": "Akcja",
+  "Animacja": "Animacja",
+  "Biografia": "Biografia",
+  "Dramat": "Dramat",
+  "Fantasy": "Fantasy",
+  "Komedia": "Komedia",
+  "Romans": "Romans",
+  "Przygodowy": "Przygodowy",
+
+  "Pn": "Pn",
+  "Wt": "Wt",
+  "Śr": "Śr",
+  "Czw": "Czw",
+  "Pt": "Pt",
+  "So": "So",
+  "Nd": "Nd",
+  "Dziś": "Dziś",
+
+  "Warszawa": "Warszawa",
+  "Kraków": "Kraków",
+  "Gdańsk": "Gdańsk",
+  "Wrocław": "Wrocław",
+
+  "poniedziałek": "Poniedziałek",
+  "wtorek": "Wtorek",
+  "środa": "Środa",
+  "czwartek": "Czwartek",
+  "piątek": "Piątek",
+  "sobota": "Sobota",
+  "niedziela": "Niedziela",
+
+  "normalny": "Normalny",
+  "ulgowy": "Ulgowy",
+  "senior": "Senior",
+
+   "ROW": "Rząd",
+  "SEAT": "Miejsce",
+
+
+  
+    "Bridget Jones: Mad About the Boy": "Bridget Jones: szalejąc za facetem",
+    "Captain America: Brave New World": "Kapitan Ameryka: Nowy Wspaniały Świat",
+    "Minecraft": "Minecraft",
+    "Wolfman": "Wilkołak",
+    "The Lord of the Rings: The War of the Rohirrim": "Władca Pierścieni: Wojna Rohirrimów",
+    "Paddington in Peru": "Paddington w Peru",
+    "Trefliki ratują Święta": "Trefliki ratują Święta",
+    "Listy do M. Pożegnania I Powroty": "Listy do M. Pożegnania i Powroty",
+    "Vaiana 2": "Vaiana 2",
+    "Red One": "Czerwona Jedynka",
+    "A Nightmare on Elm Street": "Koszmar z Ulicy Wiązów",
+    "Mufasa": "Mufasa",
+    "Gladiator II": "Gladiator II",
+    "Avatar 3": "Avatar 3",
+  
+
+
+  "Avengers: Infinity War": "Avengers: Wojna bez granic",
+  "The Batman": "Batman",
+  "Harry Potter and the Deathly Hallows: Part 2": "Harry Potter i Insygnia Śmierci: Część 2",
+  "The Shawshank Redemption": "Skazani na Shawshank",
+  "Star Wars: Episode I - The Phantom Menace": "Gwiezdne Wojny: Część I - Mroczne widmo",
+  "Titanic": "Titanic",
+  "The Wolf of Wall Street": "Wilk z Wall Street",
+  "Cars": "Auta",
+  "Toy Story 2": "Toy Story 2",
+  "Shrek 2": "Shrek 2",
+  "Alien": "Obcy",
+  "Avatar": "Avatar",
+  "Tenet": "Tenet",
+  "Skyfall": "Skyfall",
+  "Barbie": "Barbie",
+  "Oppenheimer": "Oppenheimer",
+  "Inside Out": "W głowie się nie mieści",
+  "Listy do M": "Listy do M",
+  "Chłopi": "Chłopi"
 }

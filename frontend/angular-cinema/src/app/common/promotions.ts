@@ -7,6 +7,7 @@ export class Promotions{
         public description: string,
         public price: number,
         public imageUrl: string,
-        public fullDescription: string
+        public fullDescription: string,
+        public fullDescriptionEn: string
     ){}
 }

@@ -3,6 +3,7 @@ import { DataService } from '../../services/shared/data.service';
 import { TicketsService } from '../../services/tickets.service';
 import { Ticket } from '../../common/ticket';
 import { SeatsService } from '../../services/seats.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-ticket-selection',
@@ -29,7 +30,8 @@ export class TicketSelectionComponent implements OnInit{
   constructor(
     private dataService: DataService,
     private ticketsService: TicketsService,
-    private seatsService: SeatsService
+    private seatsService: SeatsService,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -132,6 +134,10 @@ export class TicketSelectionComponent implements OnInit{
       }
     }
     return true;
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
   // reserveSeats(): void {

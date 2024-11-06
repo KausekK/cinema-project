@@ -11,10 +11,12 @@ export class PromotionsComponent implements OnInit{
 
   promotions: Promotions[]=[];
   selectedPromotion: Promotions | undefined
+  lang: string = '';
 
   constructor(private promotionsService: PromotionsService){}
   ngOnInit(): void {
     this.getPromotionsList();
+    this.lang = localStorage.getItem('language') || 'pl'; 
   }
 
   selectPromotion(promotionId: number){

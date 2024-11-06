@@ -30,4 +30,7 @@ public class Promotions {
 
     @Column(name = "full_description", nullable = false)
     private String fullDescription;
+
+    @Column(name = "full_description_en", nullable = false)
+    private String fullDescriptionEn;
 }

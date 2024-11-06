@@ -10,7 +10,8 @@ export class Movie{
         public trailerUrl: string,
         public director: string,
         public description: string,
-        public ageRestriction: number
+        public ageRestriction: number,
+        public descriptionEn: string
     ){
 
     }

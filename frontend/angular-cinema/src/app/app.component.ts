@@ -40,13 +40,9 @@ export class AppComponent {
     return this.authService.isAuthenticated();
   }
 
-isAdmin(){
-  const role = localStorage.getItem('role');
-  
-if(role === 'Admin')
-  return true;
-else return false;
-}
+  isAdmin(): boolean {
+    return localStorage.getItem('role') === 'Admin';
+  }
 
   changeLanguage(event: Event) {
     const selectElement = event.target as HTMLSelectElement;
@@ -54,10 +50,5 @@ else return false;
     this.translate.use(lang);
     localStorage.setItem('language', lang);
   }
-  
-  
-  
-  
-  
-  
+
 }

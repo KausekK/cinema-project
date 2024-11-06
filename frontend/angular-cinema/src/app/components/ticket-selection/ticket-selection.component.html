@@ -27,9 +27,9 @@
     <span class="movie-title">{{ movieTitle }}</span>
     <div class="movie-info-details">
       <span>
-        {{ cityName }} | {{ showTime | date: 'd.MM.YYYY' }} |
+        {{ cityName | translate}} | {{ showTime | date: 'd.MM.YYYY' }} |
         {{ showTime | date: 'HH:mm' }} | Sala {{ hallNumber }} |
-        {{ selectedDay }}
+        {{ selectedDay  | translate}}
       </span>
     </div>
   </div>
@@ -42,8 +42,8 @@
     <ul class="ticket-details">
       <ng-container *ngFor="let entry of seatsSelected | keyvalue">
         <li *ngFor="let seat of entry.value">
-          Rząd: {{ entry.key }}, Miejsce: {{ seat }}
-          <mat-form-field appearance="fill" class="custom-width">
+          {{ 'ROW' | translate }}: {{ entry.key }}, {{ 'SEAT' | translate }}: {{ seat }}
+              <mat-form-field appearance="fill" class="custom-width">
             <mat-label>{{ 'TICKET_TYPE_LABEL' | translate }}</mat-label>
             <mat-select
               class="small-select"
@@ -54,7 +54,7 @@
                 *ngFor="let type of ticketTypes"
                 [value]="type"
               >
-                {{ type | titlecase }} ({{ getTicketPrice(type) | number: '1.2-2' }} zł)
+                {{ type | translate }} ({{ getTicketPrice(type) | number: '1.2-2' }} zł)
               </mat-option>
             </mat-select>
             <mat-error *ngIf="!ticketTypeSelection[entry.key + '-' + seat]">

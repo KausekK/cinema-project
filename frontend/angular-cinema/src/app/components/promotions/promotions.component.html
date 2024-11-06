@@ -13,6 +13,8 @@
   
   <div class="promotion-details" *ngIf="selectedPromotion">
     <h3>{{ selectedPromotion.title }}</h3>
-    <p>{{ selectedPromotion.fullDescription }}</p>
+    <p *ngIf="lang === 'pl'">{{ selectedPromotion.fullDescription }}</p>
+    <p *ngIf="lang === 'en'">{{ selectedPromotion.fullDescriptionEn }}</p>
+
   </div>
 </section>

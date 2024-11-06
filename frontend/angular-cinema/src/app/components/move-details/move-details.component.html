@@ -5,7 +5,9 @@
             <img [src]="detail.posterUrl" [alt]="'Plakat filmu ' + detail.title">
         </div>
         <div class="detail-item">
-            <p><strong>{{ 'DESCRIPTION' | translate }}:</strong> {{ detail.description }}</p>
+            <p *ngIf="lang === 'pl'"><strong>{{ 'DESCRIPTION' | translate }}:</strong> {{ detail.description }}</p>
+            <p *ngIf="lang === 'en'"><strong>{{ 'DESCRIPTION' | translate }}:</strong> {{ detail.descriptionEn }}</p>
+
             <p><strong>{{ 'MOVIE_GENRE' | translate }}:</strong> {{ detail.type }}</p>
             <p><strong>{{ 'DIRECTOR' | translate }}:</strong> {{ detail.director }}</p>
             <p><strong>{{ 'DURATION' | translate }}:</strong> {{ detail.duration }} {{ 'MINUTES' | translate }}</p>

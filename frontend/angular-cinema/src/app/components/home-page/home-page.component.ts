@@ -21,11 +21,12 @@ export class HomePageComponent implements OnInit {
   ];
 
   currentTrailerIndex: number = 0;
-
+  
   constructor(private moviesService: MoviesService, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     this.getMoviesPosters();
+
   }
 
   getSafeTrailerUrl(): SafeResourceUrl {
