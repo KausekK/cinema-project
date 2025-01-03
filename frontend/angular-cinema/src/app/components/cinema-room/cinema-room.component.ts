@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SeatsService } from '../../services/seats.service';
-import { ActivatedRoute, Route, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Seat } from '../../common/Seat';
 import { HallService } from '../../services/hall.service';
 import { Hall } from '../../common/hall';
@@ -53,7 +53,6 @@ export class CinemaRoomComponent implements OnInit{
     });
     
   
-   
     this.dataService.selectedDay$.subscribe(day => {
       this.selectedDay = day;
       switch (day) {
@@ -98,7 +97,7 @@ export class CinemaRoomComponent implements OnInit{
       const seatInRow = this.getSeatFromSeatIndex(index);  
   
       if (this.seats[index].selected) {
-        this.countSeatsReservation.push(index + 1);
+        this.countSeatsReservation.push(index);
   
         if (this.rowsAndSeats.has(row)) {
           this.rowsAndSeats.get(row)!.push(seatInRow); 

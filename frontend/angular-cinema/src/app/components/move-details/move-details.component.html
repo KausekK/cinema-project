@@ -1,5 +1,5 @@
 <section class="movie-details-section">
-    <h2>{{ movie[0]?.title }}</h2>
+    <h2>{{ movie[0].title }}</h2>
     <div class="details-container" *ngFor="let detail of movie">
         <div class="detail-item">
             <img [src]="detail.posterUrl" [alt]="'Plakat filmu ' + detail.title">

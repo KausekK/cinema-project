@@ -92,6 +92,6 @@
       {{ 'NEXT_BUTTON' | translate }}<br />
       <span>{{ getTotalTickets() }} {{ 'TICKETS_LABEL' | translate }} - {{ calculateTotalPrice() | number: '1.2-2' }} zł</span>
     </button>
-    <button class="back-btn">{{ 'BACK_BUTTON' | translate }}</button>
+    <button class="back-btn" (click)="goBack()">{{ 'BACK_BUTTON' | translate }}</button>
   </div>
 </div>
